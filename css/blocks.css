@@ -1,0 +1,97 @@
+/* -------------------------------------------------------------------
+	БЛОКИ
+------------------------------------------------------------------- */
+
+.block 					{ margin-bottom: 30px; border-radius: 3px; }
+.block:last-child 		{ margin-bottom: 0; }
+.sidebar-left .block 	{ margin-bottom: 10px; }
+
+.block .block-header 					{ padding: 10px 15px 11px; background: #DAE2E8; border-top: 1px solid #B1BDD6; position: relative; }
+.block .block-header h3 				{ font-size: 11px; line-height: 1em; font-weight: bold; font-family: Tahoma, sans-serif; color: #45688E; }
+.block .block-header h3 a 				{ text-decoration: none; color: #45688E; }
+.block .block-header h3 a:hover			{ text-decoration: underline; }
+.block .block-header h3 a.link-dotted 	{ border: none; display: inline-block; background: #E9EDF1; border-radius: 3px; padding: 5px 7px; }
+.block .block-sub-header				{ background: #eee; color: #777; font-size: 11px; padding: 4px 15px 5px; }
+.block .block-content 					{ padding: 15px; background: #fafafa; }
+.block .block-content .nav-pills 		{ padding: 10px; background: #fafafa; margin-bottom: 0; }
+.block .block-content .notice-empty 	{ text-align: center; padding: 10px 0; }
+.block footer 							{ padding: 5px 0 5px; text-align: right; font-size: 10px; }
+.block footer a 						{ margin-right: 10px; }
+
+.block .max-height-200 		{ overflow: auto; max-height: 200px; _height: expression( this.scrollHeight > 200 ? "200px" : "auto" ); position: relative; }
+
+.block .block-update 		{ position: absolute; top: 7px; right: 8px; width: 16px; height: 16px; background: url(../images/update.gif) no-repeat; cursor: pointer; opacity: .3; }
+.block .block-update.active 	{ background-position: -16px 0; }
+
+
+/* Block Type - Stream */
+.block.block-type-stream .block-content,
+.block.block-type-blogs .block-content,
+.block.block-type-tags .block-content { padding: 0; background: #fff; }
+
+/* Block Type - Blog */
+.block.block-type-blog p  { margin-bottom: 15px; }
+
+
+/* Block Type - Tags */
+.block.block-type-tags { padding: 0; background: #fff; }
+.block.block-type-tags .nav.nav-pills { border-bottom: 1px solid #eee; }
+.block.block-type-tags .search-tags { margin-bottom: 0; padding: 15px 15px 0; }
+
+
+/* Block Type - Activity Settings */
+.block.block-type-activity p 		{ margin-bottom: 15px; }
+.block.block-type-activity ul li 	{ margin-bottom: 5px; }
+.block.block-type-activity .note 	{ display: block; margin-bottom: 15px; color: #aaa; }
+
+
+/* Block Type - Profile */
+.block.block-type-profile 							{ background: none; border: none; padding: 0; }
+.block.block-type-profile .profile-photo-wrapper 	{ position: relative; min-height: 50px; }
+.block.block-type-profile .profile-photo 			{ vertical-align: top; width:250px }
+.block.block-type-profile .status 					{ position: absolute; top: 5px; left: 5px; padding: 0 5px; border-radius: 2px; font-size: 11px; }
+.block.block-type-profile .upload-photo 			{ padding: 7px 10px 10px; background: #f7f7f7; }
+
+.block.block-type-profile-note	 			{ background: #B5FBAD; padding: 15px; }
+.block.block-type-profile-note p 			{ margin-bottom: 10px; }
+.block.block-type-profile-note .actions 	{ margin-bottom: 0; }
+
+.block.block-type-profile-nav 				{ padding: 0; background: none; }
+
+.block.block-type-profile-actions .block-content 		{ padding: 0; background: #fff; }
+.block.block-type-profile-actions ul li span,
+.block.block-type-profile-actions ul li a				{ display: block; padding: 4px 7px; }
+.block.block-type-profile-actions ul li a:hover			{ background: #f7f7f7; text-decoration: none; }
+.block.block-type-profile-actions ul li:last-child		{ margin-bottom: 0; }
+.block.block-type-profile-actions ul li a.followed		{ color: #f00; }
+
+
+/* Block Type - Foldable */
+.block.block-type-foldable { background: none; }
+.block.block-type-foldable .block-header { background: none; border: none; padding: 0 0 10px; }
+.block.block-type-foldable .block-content { display: none; background: #fafafa; }
+.block.block-type-foldable.block-type-favourite-topic .block-content .nav-pills { padding: 0 0 15px; }
+.block.block-type-foldable.block-type-talk-friends footer { padding: 0; }
+.block.block-type-foldable.block-type-talk-friends footer a {  margin-right: 0; }
+
+.block.block-type-talk-search { margin-bottom: 10px; }
+.block.block-type-talk-friends { margin-bottom: 10px; }
+
+/* Block Type Friends */
+.block.block-type-profile-friends {  }
+.block.block-type-profile-friends .block-header {  }
+.block.block-type-profile-friends .block-content { padding: 12px 0 0; background: transparent; }
+.block.block-type-profile-friends .block-content .user-list-avatar li { margin: 0 12px 12px; }
+.block.block-type-profile-friends .block-content .user-list-avatar li,
+.block.block-type-profile-friends .block-content .user-list-avatar li img { width: 50px; }
+
+
+/* Blog */
+.block.block-type-blog-actions .block-content            { background: #f7f7f7; padding: 0; }
+.block.block-type-blog-actions .avatar                   { vertical-align: top; width: 100%; }
+.block.block-type-blog-actions .blog-join                { background: #f7f7f7; text-align: center; padding: 15px 0; }
+.block.block-type-blog-actions .blog-actions             { background: #f5f5f5; text-align: center; padding: 5px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #eee; }
+
+.block.block-type-blog-users .block-content              { background: #fff; padding: 12px 0 0; }
+.block.block-type-blog-admins .block-content             { background: #fafafa; padding: 10px 15px; }
+.block.block-type-blog-admins .block-content .header-sep { margin-bottom: 10px; color: #888; }

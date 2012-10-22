@@ -1,0 +1,29 @@
+.nav li {
+    float: left;
+    width: 70px;
+    text-align: center;
+}
+
+#footer #soc_networks {
+    margin: 5px 5px 5px 700px;
+}
+
+#footer li {
+    float: left;
+    width: 50px;
+    margin-right: 2px;
+}
+
+#footer {
+    width: 900px;
+    height: 70px;
+    margin: 15px auto;
+}
+
+#vk {float: left;}
+#fb {float: left;}
+#tw {float: left;}
+
+#footer_logo_bar {
+    float: left;
+}
