@@ -88,6 +88,13 @@
         case 'qa_edit':
         include 'includes/qa_edit.php';
             break;
+        //--------
+        case 'articles':
+        include 'includes/articles.php';
+            break;
+        case 'users':
+        include 'includes/users.php';
+            break;
         }
 
         $admin_edit = new AdminEdition($alerts_messages);
