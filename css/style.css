@@ -228,7 +228,7 @@ footer a:hover{color:#1ec7eb;}
 
 
 
-input[type="text"],input[type=password],textarea{ font-family: Arial, Helvetica, sans-serif;color:#999;font-size:12px;vertical-align:middle;font-weight:normal;padding:11px 13px 10px;margin:0;background:#fff;outline:none;border:1px solid #d5d5d5;;width:216px;margin-left:10px;}
+input[type="text"],input[type=password],textarea{ font-family: Arial, Helvetica, sans-serif;color:#999;font-size:12px;vertical-align:middle;font-weight:normal;padding:11px 13px 10px;margin:0;background:#fff;outline:none;border:1px solid #d5d5d5;;width:216px;margin-left:0px;}
 /* Contact form */
 #contact-form{position:relative; padding:3px 0 0 0;}
 	#contact-form fieldset{border:none;padding:0}
@@ -535,3 +535,146 @@ template-5aace826.css:131
     color: #EEEEEE;
 }
 
+.hero-unit {
+    background-color: #EEEEEE;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+}
+.hero-unit h1 {
+    color: inherit;
+    font-size: 48px;
+    font-family: Scada;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 0px;
+    text-shadow:-1px -1px 1px rgba(255,255,255,0.2), /* наверх и влево */
+    1px 1px 1px rgba(255,255,255,0.2), /* вниз и вправо */
+    1px 1px 1px rgba(0,0,0,0.1); /* тёмная тень */
+    text-align: center;
+}
+hero-unit p {
+    color: inherit;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+}
+.btn-success:hover, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+    background-color: #51A351;
+    color: #FFFFFF;
+}
+.btn-success {
+    background-color: #5BB75B;
+    background-image: -o-linear-gradient(top, #62C462, #51A351);
+    background-repeat: repeat-x;
+    border-bottom-color: rgba(0, 0, 0, 0.251);
+    border-left-color: rgba(0, 0, 0, 0.102);
+    border-right-color: rgba(0, 0, 0, 0.102);
+    border-top-color: rgba(0, 0, 0, 0.102);
+    color: #FFFFFF;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251);
+}
+.breadcrumb {
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    list-style: none outside none;
+    margin: 0px 0px 20px;
+    padding: 8px 15px;
+}
+.breadcrumb li {
+    display: inline-block;
+    text-shadow: 0px 1px 0px #FFFFFF;
+}
+.breadcrumb .divider {
+    color: #CCCCCC;
+    padding: 0px 5px;
+}
+
+
+
+select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+    outline: thin dotted #333333;
+    outline-offset: -2px;
+}
+select {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    width: 42%;
+}
+select, input[type="file"] {
+    height: 30px;
+    line-height: 30px;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    border-radius: 3px;
+    color: #555555;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 9px;
+    padding: 4px 6px;
+}
+textarea {width:98%;max-width:950px; ;}
+label span {float: left; width: 140px; text-align: right; padding-right:10px ;}
+
+
+.bs-docs-example-popover .popover {
+    display: block;
+    float: left;
+    margin: 20px;
+    width: 260px;
+}
+.popover.bottom {
+    margin-top: 10px;
+}
+.popover {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.196);
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.196);
+    left: 0px;
+    padding: 1px;
+    top: 0px;
+    width: 57%;
+    z-index: 1010;
+}
+.popover-title {
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #EBEBEB;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0px;
+    padding: 8px 14px;
+}
+.popover.bottom .arrow {
+    border-bottom-color: #FFFFFF;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 0px;
+    left: 50%;
+    margin-left: -10px;
+    top: -10px;
+}
+.popover .arrow, .popover .arrow::after {
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-left-color: transparent;
+    border-left-style: solid;
+    border-right-color: transparent;
+    border-right-style: solid;
+    border-top-color: transparent;
+    border-top-style: solid;
+    display: inline-block;
+    height: 0px;
+    position: absolute;
+    width: 0px;
+}
+.popover-content {
+    padding: 9px 14px;
+}
+.popover-content p {padding:0px;}
