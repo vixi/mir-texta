@@ -4,6 +4,7 @@
             <div class="grid_24 padRT">
                 <?php
                 $cabinet = new UserCabinet();
+                echo "<a href='./cabinet.php?action=exit'>Выйти</a>";
                 if (!isset($_GET[action])) {
 
                 } else {
