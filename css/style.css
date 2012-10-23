@@ -10,7 +10,7 @@ html,body {height:100%;
 }
  /* тёмная тенsdfasdfь */
 
-p{padding-bottom:24px;z-index: 01;}
+p{padding-bottom:24px;z-index: 01;font-size: 13px; line-height: 19px;}
 a{color:#1ec7eb;outline:none;cursor:pointer;text-decoration:none;}
 a:hover{text-decoration: underline; cursor: pointer;}
 /*  Header styles */
@@ -262,7 +262,14 @@ input[type="text"],input[type=password],textarea{ font-family: Arial, Helvetica,
 }
 
 /******************** Footer ******************/
-footer{ padding:22px 0;font:14px/24px Arial, Helvetica, sans-serif; color:#1d1d1d; background:#CAC8C8;}
+.container_24.black {background: #121212; color: #DDDDDD;font-family:Tahoma; font-size: 12px; line-height: 19px;}
+.container_16.black {background: #121212; color: #ffffff;}
+.container_8.black {background: #121212; color: #ffffff;}
+.container_24.grid_8.black h5 {font-size: 19px; font-family: Scada; background: none; color: #ffffff; padding-bottom: 3px; line-height: 24px;}
+.container_24.grid_16.black h5 {font-size: 19px; font-family: Scada; background: none; color: #ffffff; padding-bottom: 3px; line-height: 24px;}
+
+.container_24.grid_8.black a {font-family:Tahoma; font-size: 12px; line-height: 19px; background: none; color: #ffffff;}
+footer{ padding:22px 0;font:14px/24px Arial, Helvetica, sans-serif; color:#ffffff; background:#121212;}
 footer a{color:#1d1d1d; text-decoration:underline;}
 footer a:hover{color:#1ec7eb;}
 .privacy{ float:left;}
@@ -440,7 +447,7 @@ label, input, button, select, textarea {
     line-height: 20px;
 }
 
-btn:focus {
+.btn:focus {
     outline: thin dotted #333333;
     outline-offset: -2px;
 }
@@ -500,7 +507,6 @@ btn:focus {
 .controls > .radio:first-child, .controls > .checkbox:first-child {
     padding-top: 5px;
 }
-bootstrap.css:1130
 .radio, .checkbox {
     min-height: 18px;
     padding-left: 18px;
@@ -520,3 +526,12 @@ bootstrap.css:1130
     padding-bottom: 14px;
     padding-top: 14px;
 }
+
+#bottom-b .mod-line .module-title {
+    background: url("data:image/png;base64,iVBORw0K…") 0px 100% repeat-x transparent;
+}
+template-5aace826.css:131
+.mod-box-black .module-title, #bottom-b .mod-line .module-title {
+    color: #EEEEEE;
+}
+
