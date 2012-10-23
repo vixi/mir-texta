@@ -16,6 +16,7 @@
                                 <label for='wmz'>WMZ:<br><input name='wmz' type='text' size='20'></label><br>
                                 <label for='wmr'>WMR:<br><input name='wmr' type='text' size='20'></label><br>
                                 <label for='yandex'>Yandex money:<br><input name='yandex' type='text' size='20'></label><br>
+                                <input type='checkbox' name='bot'>
                                 <button type='submit' name='submit' value='registration'>Зарегистрироваться</button>
                               </form>";
                         break;

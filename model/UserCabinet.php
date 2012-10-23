@@ -12,21 +12,24 @@ class UserCabinet {
     public function selectUserArticles()
     {
         $select_user_articles_query = "SELECT * FROM user_articles WHERE email='$_SESSION[email]'";
-        $select_user_articles_result = mysql_query($select_user_articles_query);
-        while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
-            $select_user_articles_exit[] = "<tr>
-                                                <td>$select_user_articles_row[2]</td>
-                                                <td>$select_user_articles_row[4]</td>
-                                                <td>$select_user_articles_row[5]</td>
-                                                <td>$select_user_articles_row[6]</td>
-                                                <td>$select_user_articles_row[7]</td>
-                                                <td>$select_user_articles_row[8]</td>
-                                                <td>$select_user_articles_row[9]</td>
-                                                <td>$select_user_articles_row[10]</td>
-                                                <td>$select_user_articles_row[11]</td>
-                                            </tr>";
+        if ($select_user_articles_result = mysql_query($select_user_articles_query)) {
+            echo "У вас еще нету статей";
+        } else {
+            while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
+                $select_user_articles_exit[] = "<tr>
+                                                    <td>$select_user_articles_row[2]</td>
+                                                    <td>$select_user_articles_row[4]</td>
+                                                    <td>$select_user_articles_row[5]</td>
+                                                    <td>$select_user_articles_row[6]</td>
+                                                    <td>$select_user_articles_row[7]</td>
+                                                    <td>$select_user_articles_row[8]</td>
+                                                    <td>$select_user_articles_row[9]</td>
+                                                    <td>$select_user_articles_row[10]</td>
+                                                    <td>$select_user_articles_row[11]</td>
+                                                </tr>";
+            }
+            return $select_user_articles_exit;
         }
-        return $select_user_articles_exit;
     }
 
     public function selectThemes()
@@ -68,6 +71,7 @@ class UserCabinet {
         if (isset($_POST[email])) {$email = $this->quote_smart($_POST[email]); if ($email == '') {unset($email);}}
         if (isset($_POST[date])) {$date = $this->quote_smart($_POST[date]); if ($date == '') {unset($date);}}
         if (isset($_POST[status])) {$status = $this->quote_smart($_POST[status]); if ($status == '') {unset($status);}}
+
         if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)) {
 
             $symbols = strlen($text)/2;
