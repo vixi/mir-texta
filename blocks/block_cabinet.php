@@ -42,23 +42,23 @@
                             </form>";
                             break;
                         case 'cabinet' : echo '<a href="cabinet.php?action=article_add">Добавить статью</a>';
-                    echo "
-                        <table>
-                        <tr>
-                            <td>Название статьи</td>
-                            <td>Тема</td>
-                            <td>Тип статьи</td>
-                            <td>Теги статьи</td>
-                            <td>Символов</td>
-                            <td>Стоимость</td>
-                            <td>Уникальность</td>
-                            <td>Дата</td>
-                            <td>Статус</td>
-                        </tr>";
-                    if ($cabinet->selectUserArticles()) {
-                        foreach ($cabinet->selectUserArticles() as $key => $value) {
-                            echo $value;
-                        }
+
+                        if ($cabinet->selectUserArticles()) {
+                            echo "<table>
+                                    <tr>
+                                        <td>Название статьи</td>
+                                        <td>Тема</td>
+                                        <td>Тип статьи</td>
+                                        <td>Теги статьи</td>
+                                        <td>Символов</td>
+                                        <td>Стоимость</td>
+                                        <td>Уникальность</td>
+                                        <td>Дата</td>
+                                        <td>Статус</td>
+                                    </tr>";
+                            foreach ($cabinet->selectUserArticles() as $key => $value) {
+                                echo $value;
+                            }
                     }
                     echo "</table>";
                         break;
