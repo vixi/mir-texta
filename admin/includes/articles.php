@@ -16,8 +16,9 @@ while ($admin_articles_row = mysql_fetch_array($admin_articles_result)) {
                                 <td>$admin_articles_row[11]</td>
                              </tr>";
     }
-
+    echo "<table>";
     foreach ($admin_articles_exit as $key => $value) {
            echo $value;
     }
+    echo "</table>";
 ?>
