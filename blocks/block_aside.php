@@ -2,13 +2,13 @@
 <aside class="bg2">
     <div class="container_24">
         <div class="wrapper">
-            <div class="grid_16 suffix_1">
+            <div class="grid_15 suffix_1">
                 <div class="wrapper">
                     <?php echo $aside->getTopNews(); ?>
                 </div>
 
             </div>
-            <div class="grid_7 padRT">
+            <div class="grid_8 padRT">
                 <h3>Наши новости</h3>
                     <?php
                     foreach ($aside->getNews() as $k => $news) {

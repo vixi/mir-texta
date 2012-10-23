@@ -9,7 +9,7 @@ if (isset($_GET[articles_id])) {$articles_id = $index->get_protect($_GET[article
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
+        <title>Заработай тут. Заработок в интернете. Дополнительный доход.
         <?php
         if (isset($news_id)) {
             echo $index->getTitle('news');

@@ -16,7 +16,7 @@ a:hover{text-decoration: underline; cursor: pointer;}
 /*  Header styles */
 h1,h2,h3,h4,h5,h6{line-height:1.2em;color:#212121; font-weight:normal;}
 h1{font-size:30px;}
-h2{font-size:30px; color:#242424; letter-spacing:1px;line-height:43px; padding-bottom:15px;font-family: 'Lobster', cursive;}
+h2{font-size:30px; color:#242424; letter-spacing:1px;line-height:23px; padding-bottom:15px;font-family: 'Lobster', cursive;}
 h3{font-size:24px; line-height:30px;color:#242424; font-family:'Lobster', sans-serif; padding-bottom:12px;}
 h4{font-size:20px; font-family: 'Scada';}
 h5{font-size:18px;}
@@ -70,7 +70,7 @@ html[xmlns] .slides {display: block;}
 /********************** Content ************************/
 section.padcontent{ padding:27px 0 22px;}
 section.padcontent2{ padding:44px 0 53px;}
-aside.bg2{ width:100%; padding:50px 0 44px 0;}
+aside.bg2{ width:100%; padding:5px 0 44px 0;}
 aside.padcontent2{padding:50px 0 48px 0;}
 aside.padcontent4{padding:49px 0 41px 0;}
 aside.padcontent3{padding:47px 0 56px 0;}
@@ -180,7 +180,7 @@ footer a:hover{color:#1ec7eb;}
 	.flex-control-nav{width:183px; padding:5px 0 8px 115px;}
 	header h1 span.logo-slogan{ background:none; padding:0;}
 	.header-links{ padding:13px 0 0 0; text-align:right;}
-	.padRT{ padding-top:40px;}
+	.padRT{ padding-top:10px;}
 	.social{ float:none; padding:0 0 15px 90px;}
 	.social li:first-child{ display:none;}
 	.privacy{ float:none;text-align:center;}
@@ -204,8 +204,8 @@ footer a:hover{color:#1ec7eb;}
 	.header-links{ padding:13px 0 0 0; text-align:right;}
 	.flex-control-nav{width:241px; padding:5px 0 8px 175px;}
 	.img1{ width:420px;}
-	.news{ padding-bottom:20px;}
-	.news .extra-wrap{ padding-top:25px;}
+	.news{ padding-bottom:0px;}
+	.news .extra-wrap{ padding-top:5px;}
 	.list2 li{ width:110px;margin:0 10px 10px 0;padding:10px;}
 	.list2 li.last{ margin-right:0;}
 	.list3 li{ float:left; width:180px; background:#e3e3e3; padding:10px; margin:0 10px 10px 0;}
@@ -228,7 +228,7 @@ footer a:hover{color:#1ec7eb;}
 
 
 
-input[type="text"],input[type=password],textarea{font-family: Arial, Helvetica, sans-serif;color:#999;font-size:12px;vertical-align:middle;font-weight:normal;padding:11px 13px 10px;margin:0;background:#fff;outline:none;border:1px solid #d5d5d5;;width:216px;}
+input[type="text"],input[type=password],textarea{ font-family: Arial, Helvetica, sans-serif;color:#999;font-size:12px;vertical-align:middle;font-weight:normal;padding:11px 13px 10px;margin:0;background:#fff;outline:none;border:1px solid #d5d5d5;;width:216px;margin-left:10px;}
 /* Contact form */
 #contact-form{position:relative; padding:3px 0 0 0;}
 	#contact-form fieldset{border:none;padding:0}
@@ -367,6 +367,156 @@ footer a:hover{color:#1ec7eb;}
     border-right: 1px solid white;
 }
 
+form.bs-docs-example {
+    padding-bottom: 19px;
+}
+.bs-docs-example {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin: 15px 0px;
+    padding: 9px 19px 14px;
+    position: relative;
+    width: 400px;
+    float:left;
+}
+
+form {
+    margin: 0px 0px 20px;
+}
+legend {
+    border-bottom: 1px solid #E5E5E5;
+    border-left: 0px none currentColor;
+    border-right: 0px none currentColor;
+    border-top: 0px none currentColor;
+    color: #333333;
+    display: block;
+    font-size: 21px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    padding: 0px;
+    width: 100%;
+    background: #fff !important;
+}
+
+.form-horizontal .control-group {
+    margin-bottom: 20px;
+}
+legend + .control-group {
+    margin-top: 20px;
+}
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.form-horizontal .controls {
+    margin-left: 20px;
+}
+
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+btn:focus {
+    outline: thin dotted #333333;
+    outline-offset: -2px;
+}
+
+.btn:hover {
+    -o-transition: background-position 0.1s cubic-bezier(0, 0, 1, 1) 0;
+    background-color: #E6E6E6;
+    background-position: 0px -15px;
+    color: #333333;
+    text-decoration: none;
+}
+
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+    background-color: #E6E6E6;
+    color: #333333;
+}
+
+.btn {
+    border-bottom-color: rgba(0, 0, 0, 0.251);
+    border-left-color: rgba(0, 0, 0, 0.149);
+    border-right-color: rgba(0, 0, 0, 0.149);
+    border-top-color: rgba(0, 0, 0, 0.149);
+}
+
+.btn {
+    background-color: #F5F5F5;
+    background-image: -o-linear-gradient(top, #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #A2A2A2;
+    border-left: 1px solid #E6E6E6;
+    border-radius: 4px;
+    border-right: 1px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.196), 0px 1px 2px rgba(0, 0, 0, 0.047);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0px;
+    margin-left:90px;
+    padding: 4px 14px;
+    text-align: center;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.749);
+    vertical-align: middle;
+}
+.checkbox {margin-left:105px; margin-bottom: 15px; margin-top: -10px; font-size:12px;}
+
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 100px;
+}
 
 
-		}
+.controls > .radio:first-child, .controls > .checkbox:first-child {
+    padding-top: 5px;
+}
+bootstrap.css:1130
+.radio, .checkbox {
+    min-height: 18px;
+    padding-left: 18px;
+}
+
+.alert {
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    border-radius: 4px;
+    color: #C09853;
+    margin-bottom: 20px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.506);
+}
+.alert h4 {background: none;}
+.alert-block {
+    padding-bottom: 14px;
+    padding-top: 14px;
+}

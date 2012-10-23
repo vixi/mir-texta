@@ -55,7 +55,7 @@ ul.sf-menu li li li.sfHover ul {
 }
 .sf-menu li a span.arrow{ background: url(../images/menu-arrow.png) 0 0 no-repeat; display:none; width:14px; height:8px; position:relative; margin:5px 0 0 10px;}
 @media only screen and (min-width: 768px) and (max-width: 995px) {
-	.sf-menu li {width:107px;}
+	.sf-menu li {width: 161px;}
 	.sf-menu li.last{width:107px;}
 	.sf-menu li a span.arrow{display:inline-block; }
 }

@@ -1,31 +1,13 @@
 <footer>
-    <div class=" container_24">
-        <div class="wrapper">
-            <div class="grid_24">
-                <ul class="social">
-                    <li>Контакты</li>
-                    <li>
-                        <a href="#">
-                            <img src="images/social-link-1.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/social-link-2.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/social-link-3.png" alt="">
-                        </a>
-                    </li>
-                </ul>
-                <div class="privacy">
-                    <a href="#">
-                        <img src="images/logo-footer.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
+<div class="container_24" style="background: none;">
+    <div class="container_9" style="background: none; display: block; float:right; width:30%;">
+    <H5>Контакты:</H5>
+    <br>icq:1-528-700(В крайнейм случае)
+    <br>e-mail:
     </div>
+<div class="container_12"style="background: none; display: block; float:right; width: 70%;">
+Реальный заработок в интернете. Дополнительный доход в интернете. Временная работа. Заработать в интернете. Работа в интернете.
+Заработок  в интернете  без вложений.Заработай!
+</div>
+</div>
 </footer>
