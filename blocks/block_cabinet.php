@@ -54,8 +54,10 @@
                             <td>Дата</td>
                             <td>Статус</td>
                         </tr>";
-                    foreach ($cabinet->selectUserArticles() as $key => $value) {
-                        echo $value;
+                    if ($cabinet->selectUserArticles()) {
+                        foreach ($cabinet->selectUserArticles() as $key => $value) {
+                            echo $value;
+                        }
                     }
                     echo "</table>";
                         break;

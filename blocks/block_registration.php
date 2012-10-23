@@ -58,6 +58,7 @@
   </div>
      <div class='control-group'>
     <label class='control-label' for='inputEmail'>Yandex.money:</label>
+    <input type='checkbox' name='bot' style='display: none;'>
     <div class='controls'>
       <input type='text' placeholder='WMZ' name='yandex' size='15' maxlength='20'>
     </div>
