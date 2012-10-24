@@ -13,26 +13,18 @@ class UserCabinet {
     {
         $select_user_articles_query = "SELECT * FROM user_articles WHERE email='$_SESSION[email]'";
         if ($select_user_articles_result = mysql_query($select_user_articles_query)) {
-            echo "<div class='hero-unit'>
-                    <h1>Добро пожаловать!</h1>
-                    <p>Рады видеть Вас в нашей команде! Теперь Вы можете приступить к работе. Для этого Вам необходимо добавить статью.</p>
-                    <p>
-                        <a class='btn btn-primary btn-success' href='cabinet.php?action=article_add'>Добавить статью</a>
-                    </p>
-                </div>";
-        } else {
-            while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
-                $select_user_articles_exit[] = "<tr>
-                                                    <td>$select_user_articles_row[2]</td>
-                                                    <td>$select_user_articles_row[4]</td>
-                                                    <td>$select_user_articles_row[5]</td>
-                                                    <td>$select_user_articles_row[6]</td>
-                                                    <td>$select_user_articles_row[7]</td>
-                                                    <td>$select_user_articles_row[8]</td>
-                                                    <td>$select_user_articles_row[9]</td>
-                                                    <td>$select_user_articles_row[10]</td>
-                                                    <td>$select_user_articles_row[11]</td>
-                                                </tr>";
+        while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
+            $select_user_articles_exit[] = "<tr>
+                                                <td>$select_user_articles_row[2]</td>
+                                                <td>$select_user_articles_row[4]</td>
+                                                <td>$select_user_articles_row[5]</td>
+                                                <td>$select_user_articles_row[6]</td>
+                                                <td>$select_user_articles_row[7]</td>
+                                                <td>$select_user_articles_row[8]</td>
+                                                <td>$select_user_articles_row[9]</td>
+                                                <td>$select_user_articles_row[10]</td>
+                                                <td>$select_user_articles_row[11]</td>
+                                            </tr>";
             }
             return $select_user_articles_exit;
         }
@@ -81,11 +73,10 @@ class UserCabinet {
         if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)) {
 
             $symbols = strlen($text)/2;
-            $price = '5';
-            $unique = '6';
+            $price = '?';
 
-            $query = "INSERT INTO user_articles (  theme,   type,   title,   text,   tags,   symbols,   price,   unique,   email,   date,   status)
-                                         VALUES ('$theme','$type','$title','$text','$tags','$symbols','$price','$unique','$email','$date','$status')";
+            $query = "INSERT INTO user_articles (  theme,   type,   title,   text,   tags,   symbols,   price,   email,   date,   status)
+                                         VALUES ('$theme','$type','$title','$text','$tags','$symbols','$price','$email','$date','$status')";
 
             if ($result = mysql_query($query)) {
                 echo "<div class='alert alert-success'>ok</div>";

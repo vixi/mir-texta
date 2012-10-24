@@ -49,8 +49,7 @@
                                 </label>
                                 <label><span>Теги, через запятую:</span><input type='text' name='tags' style='width:40%; min-width: 80px'></label>
                                 <label><span>Заголовок статьи:</span><input type='text' name='title' style='width:40%; min-width: 80px; font-weight: bold;'></label>
-                                <label>Текст статьи<textarea name='text' rows='20'></textarea></label><br>
-
+                                <label>Текст статьи<textarea id='text' name='text' rows='20'></textarea></label><br>
                                 <input type='hidden' name='email' value='$_SESSION[email]'>
                                 <input type='hidden' name='date' value='$date'>";
                                 echo $cabinet->selectStatus(1);
@@ -58,8 +57,7 @@
                                 "<button type='submit' name='submit' value='article_add'>Отправить</button>
                             </form>";
                             break;
-                        case 'cabinet' : echo '<!--<a href="cabinet.php?action=article_add">Добавить статью</a>-->';
-
+                        case 'cabinet' : 
                         if ($cabinet->selectUserArticles()) {
                             echo "<table>
                                     <tr>
@@ -76,9 +74,17 @@
                             foreach ($cabinet->selectUserArticles() as $key => $value) {
                                 echo $value;
                             }
-                    }
-                    echo "</table>";
-                        break;
+                        } else {
+                            echo "<div class='hero-unit'>
+                                    <h1>Добро пожаловать!</h1>
+                                    <p>Рады видеть Вас в нашей команде! Теперь Вы можете приступить к работе. Для этого Вам необходимо добавить статью.</p>
+                                    <p>
+                                        <a class='btn btn-primary btn-success' href='cabinet.php?action=article_add'>Добавить статью</a>
+                                    </p>
+                                 </div>";
+                        }
+                        echo "</table>";
+                            break;
                     }
                 }
 
@@ -87,7 +93,6 @@
                         break;
                 }
                 ?>
-
             </div>
         </div>
     </div>
