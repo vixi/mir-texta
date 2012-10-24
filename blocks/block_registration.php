@@ -12,13 +12,13 @@
   <div class='control-group'>
     <label class='control-label' for='inputEmail'>Ваш Email:</label>
     <div class='controls'>
-      <input type='text' id='inputEmail' placeholder='Email' name='email' size='15' maxlength='15'>
+      <input type='text' id='inputEmail' placeholder='Email' name='email' size='15' maxlength='25'>
     </div>
   </div>
   <div class='control-group'>
     <label class='control-label' for='inputPassword'>Ваш Пароль:</label>
     <div class='controls'>
-      <input id='inputPassword' placeholder='Password' name='password' type='password' size='15' maxlength='15'>
+      <input id='inputPassword' placeholder='Password' name='password' type='password' size='15' maxlength='25'>
     </div>
   </div>
   <div class='control-group'>
@@ -34,33 +34,33 @@
   <div class='control-group'>
     <label class='control-label' for='inputEmail'>Ваш Email:</label>
     <div class='controls'>
-      <input type='text' id='inputEmail' placeholder='Email' name='email' size='15' maxlength='15'>
+      <input type='text' id='inputEmail' placeholder='Email' name='email' size='15' maxlength='75'>
     </div>
   </div>
   <div class='control-group'>
     <label class='control-label' for='inputPassword'>Ваш Пароль</label>
     <div class='controls'>
-      <input id='inputPassword' placeholder='Пароль' name='password' type='password' size='15' maxlength='15'>
+      <input id='inputPassword' placeholder='Пароль' name='password' type='password' size='15' maxlength='25'>
     </div>
   </div>
   <h4>Ваши платежные реквизиты (изменить можно только через админа).</h4>
    <div class='control-group'>
     <label class='control-label' for='inputEmail'>WMZ:</label>
     <div class='controls'>
-      <input type='text' placeholder='WMZ' name='wmz' size='15' maxlength='20'>
+      <input type='text' placeholder='WMZ' name='wmz' size='15' maxlength='25'>
     </div>
   </div>
      <div class='control-group'>
     <label class='control-label' for='inputEmail'>WMR:</label>
     <div class='controls'>
-      <input type='text' placeholder='WMR' name='wmr' size='15' maxlength='20'>
+      <input type='text' placeholder='WMR' name='wmr' size='15' maxlength='25'>
     </div>
   </div>
      <div class='control-group'>
     <label class='control-label' for='inputEmail'>Yandex.money:</label>
     <input type='checkbox' name='bot' style='display: none;'>
     <div class='controls'>
-      <input type='text' placeholder='WMZ' name='yandex' size='15' maxlength='20'>
+      <input type='text' placeholder='WMZ' name='yandex' size='15' maxlength='25'>
     </div>
   </div>
 <label class='checkbox'>
