@@ -29,7 +29,7 @@
 </form><div style='display: block; margin-left:70px;float:left;'>";
 
 
-                      echo "  <form class='bs-docs-example form-horizontal' form action='./cabinet.php' method='post'>
+                      echo "<form class='bs-docs-example form-horizontal' form action='./cabinet.php?action=cabinet' method='post'>
   <legend>Регистрация на сайте</legend>
   <div class='control-group'>
     <label class='control-label' for='inputEmail'>Ваш Email:</label>
