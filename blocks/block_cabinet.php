@@ -57,7 +57,7 @@
                                 "<button type='submit' name='submit' value='article_add'>Отправить</button>
                             </form>";
                             break;
-                        case 'cabinet' : 
+                        case 'cabinet' :
                         if ($cabinet->selectUserArticles()) {
                             echo "<table>
                                     <tr>
@@ -74,6 +74,9 @@
                             foreach ($cabinet->selectUserArticles() as $key => $value) {
                                 echo $value;
                             }
+                            echo "<p>
+                                      <a class='btn btn-primary btn-success' href='cabinet.php?action=article_add'>Добавить статью</a>
+                                  </p>";
                         } else {
                             echo "<div class='hero-unit'>
                                     <h1>Добро пожаловать!</h1>
