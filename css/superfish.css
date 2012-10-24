@@ -3,9 +3,10 @@
 .sf-menu li {position:relative; float:left; font:20px 'Scada', sans-serif; text-transform:none;letter-spacing: 2px; width:203px; border-left:1px solid #3a3a3a;}
 .sf-menu li:first-child{ border:none;}
 .sf-menu li.last{width:140px; }
+.sf-menu li#last{width:140px; }
 	.sf-menu li a {display:block; background:url(../images/nav-tail.jpg) 0 0 repeat-x #0d0d0d; color:#fff; padding:20px 0 20px; text-align:center;}
 	.sf-menu li:first-child a{ border-radius:0px 0 0 7px;}
-	.sf-menu li.last a{ border-radius:0 0px 7px 0; background: #0088CC;}
+	.sf-menu li#last a{ border-radius:0 0px 7px 0; background: #0088CC;}
 		.sf-menu li.current a,.sf-menu li.sfHover a,.sf-menu li a:hover{ text-decoration:none; background:#1ec7eb;}
 .sf-menu ul {
 	position:		absolute;
