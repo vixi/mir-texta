@@ -9,7 +9,7 @@
             <li><a href="./index.php?action=users">Пользователи  <span class="badge badge-info">256</span></a></li>
 
           </ul>
-          <div class="btn" style="float: right;">Выход</div>
+          <a href="../index.php"><div class="btn" style="float: right;">Выход</div></a>
       </div>
     </div>
 </div>
