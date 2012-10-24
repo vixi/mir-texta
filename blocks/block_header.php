@@ -8,9 +8,9 @@
                     <li><a href="faq.php">Вопросы</a></li>
                     <?php
                     if (isset($_SESSION['email']) and isset($_SESSION['id'])) {
-                        echo "<li class='last'><a href='cabinet.php?action=cabinet'>Кабинет</a></li>";
+                        echo "<li id='last'><a href='cabinet.php?action=cabinet'>Кабинет</a></li>";
                     } else {
-                        echo "<li class='last'><a href='cabinet.php?action=enter'>Вход</a></li>";
+                        echo "<li id='last'><a href='cabinet.php?action=enter'>Вход</a></li>";
                     }
                     ?>
                 </ul>

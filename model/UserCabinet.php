@@ -14,12 +14,12 @@ class UserCabinet {
         $select_user_articles_query = "SELECT * FROM user_articles WHERE email='$_SESSION[email]'";
         if ($select_user_articles_result = mysql_query($select_user_articles_query)) {
             echo "<div class='hero-unit'>
-  <h1>Добро пожаловать!</h1>
-  <p>Рады видеть Вас в нашей команде! Теперь Вы можете приступить к работе. Для этого Вам необходимо добавить статью.</p>
-  <p>
-    <a class='btn btn-primary btn-success' href='cabinet.php?action=article_add'>Добавить статью</a>
-  </p>
-</div>";
+                    <h1>Добро пожаловать!</h1>
+                    <p>Рады видеть Вас в нашей команде! Теперь Вы можете приступить к работе. Для этого Вам необходимо добавить статью.</p>
+                    <p>
+                        <a class='btn btn-primary btn-success' href='cabinet.php?action=article_add'>Добавить статью</a>
+                    </p>
+                </div>";
         } else {
             while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
                 $select_user_articles_exit[] = "<tr>
