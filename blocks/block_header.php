@@ -14,6 +14,12 @@
                     }
                     ?>
                 </ul>
+                <script>
+                    $('nav.main_menu li').each(function () {
+                        if (this.getElementsByTagName("a")[0].href == location.href)
+                            this.className = "current";
+                    });
+                </script>
                 <div class="clear"></div>
             </nav>
         </div>
