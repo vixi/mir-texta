@@ -18,7 +18,6 @@ class UserCabinet {
                                                 <td>$select_user_articles_row[2]</td>
                                                 <td>$select_user_articles_row[4]</td>
                                                 <td>$select_user_articles_row[5]</td>
-                                                <td>$select_user_articles_row[6]</td>
                                                 <td>$select_user_articles_row[7]</td>
                                                 <td>$select_user_articles_row[8]</td>
                                                 <td>$select_user_articles_row[9]</td>
