@@ -12,7 +12,7 @@ foreach ($admin_users_exit as $key => $value) {
 echo "</div>";
 
 if (isset($_GET[user_id])) {
-    $user_info_query = "SELECT email,wmz,wmr,yandex FROM users WHERE id=$_GET[user_id]";
+    $user_info_query = "SELECT email,wmz,wmr,yandex FROM users WHERE id='$_GET[user_id]'";
     $user_info_result = mysql_query($user_info_query);
     $user_info_row = mysql_fetch_array($user_info_result);
     $email = $user_info_row[0];
@@ -23,7 +23,7 @@ if (isset($_GET[user_id])) {
           WMZ: $wmz<br>
           WMR: $wmr<br>
           Yandex: $yandex";
-    $user_articles_query = "SELECT title,date,theme,type,symbols,unique,price,status FROM user_articles WHERE email='$_GET[user_email]'";
+    $user_articles_query = "SELECT * FROM user_articles WHERE email='$_GET[user_email]'";
     $user_articles_result = mysql_query($user_articles_query);
     echo "<table>
             <tr>
@@ -37,19 +37,20 @@ if (isset($_GET[user_id])) {
                 <td>Статус</td>
             </tr>";
     while ($user_articles_row = mysql_fetch_array($user_articles_result)) {
-        echo "<tr>
-                <td>$admin_articles_row[0]</td>
-                <td>$admin_articles_row[2]</td>
-                <td>$admin_articles_row[3]</td>
-                <td>$admin_articles_row[4]</td>
-                <td>$admin_articles_row[6]</td>
-                <td>$admin_articles_row[5]</td>
-                <td>$admin_articles_row[1]</td>
-                <td>$admin_articles_row[7]</td>
-            </tr>
-          </table>";
+        $admin_articles_exit[] = "<tr>
+                                    <td>$admin_articles_row[0]</td>
+                                    <td>$admin_articles_row[2]</td>
+                                    <td>$admin_articles_row[3]</td>
+                                    <td>$admin_articles_row[4]</td>
+                                    <td>$admin_articles_row[6]</td>
+                                    <td>$admin_articles_row[5]</td>
+                                    <td>$admin_articles_row[1]</td>
+                                    <td>$admin_articles_row[7]</td>
+                                </tr>";
     }
-
-
+    foreach ($admin_articles_exit as $key => $value) {
+        echo $value;
+    }
+    echo "</table>";
 }
 ?>
