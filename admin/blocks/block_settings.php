@@ -1,4 +1,4 @@
-    <div class="span8">
+<div class="span8">
         <?php
         $admin_edit = new AdminEdition($alerts_messages);
         switch ($_GET[action]) {
@@ -12,3 +12,4 @@
             break;
         }
 ?>
+</div>
