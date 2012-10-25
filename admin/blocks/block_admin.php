@@ -56,6 +56,9 @@
         case 'qa_edit':
         include 'includes/qa_edit.php';
             break;
+
+        case 'theme_add' :
+            include 'includes/theme_add.php';
         }
 
         $admin_edit = new AdminEdition($alerts_messages);

@@ -383,5 +383,15 @@ class AdminEdition {
             echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
         }
     }
+
+    public function themeAdd() {
+        if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
+        $theme_add_query = "INSERT INTO themes (theme) VALUES ('$theme')";
+        if ($theme_add_result = mysql_query($theme_add_query)) {
+            echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
+        } else {
+            echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+        }
+    }
 }
 ?>
