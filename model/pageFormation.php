@@ -103,7 +103,7 @@ class pageFormation {
         while ($full_articles_row = mysql_fetch_array($full_articles_result)) {
             $full_articles_exit[] = "<div class='single_article' id='$full_articles_row[0]'>".
                                     "<h4>".$full_articles_row[1]."</h4>".
-                                    "<p class='extra-wrap'>".$full_articles_row[2]."</p>".
+                                    "".$full_articles_row[2]."".
                                     "<p class='extra-wrap'>".$full_articles_row[3]."</p>".
                                     "</div>";
         }
