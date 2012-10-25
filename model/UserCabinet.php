@@ -68,14 +68,14 @@ class UserCabinet {
         if (isset($_POST[email])) {$email = $this->quote_smart($_POST[email]); if ($email == '') {unset($email);}}
         if (isset($_POST[date])) {$date = $this->quote_smart($_POST[date]); if ($date == '') {unset($date);}}
         if (isset($_POST[status])) {$status = $this->quote_smart($_POST[status]); if ($status == '') {unset($status);}}
-
-        if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)) {
+        if (isset($_POST[user_id])) {$user_id = $this->quote_smart($_POST[user_id]); if ($user_id == '') {unset($user_id);}}
+        if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)&&isset($user_id)) {
 
             $symbols = strlen($text)/2;
             $price = '?';
 
-            $query = "INSERT INTO user_articles (  theme,   type,   title,   text,   tags,   symbols,   price,   email,   date,   status)
-                                         VALUES ('$theme','$type','$title','$text','$tags','$symbols','$price','$email','$date','$status')";
+            $query = "INSERT INTO user_articles ( user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   date,   status)
+                                         VALUES ($user_id, '$theme','$type','$title','$text','$tags','$symbols','$price','$email','$date','$status')";
 
             if ($result = mysql_query($query)) {
                 echo "<div class='alert alert-success'>ok</div>";

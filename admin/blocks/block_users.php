@@ -23,9 +23,33 @@ if (isset($_GET[user_id])) {
           WMZ: $wmz<br>
           WMR: $wmr<br>
           Yandex: $yandex";
-    $user_articles_query = "SELECT title,date,theme,type,symbols,unique,price FROM user_articles WHERE email=$_GET[user_email]";
+    $user_articles_query = "SELECT title,date,theme,type,symbols,unique,price,status FROM user_articles WHERE email='$_GET[user_email]'";
     $user_articles_result = mysql_query($user_articles_query);
-    $user_articles_row = mysql_fetch_array($user_articles_result);
-    //на завтра
+    echo "<table>
+            <tr>
+                <td>Название статьи</td>
+                <td>Тема</td>
+                <td>Тип статьи</td>
+                <td>Символов</td>
+                <td>Стоимость</td>
+                <td>Уникальность</td>
+                <td>Дата</td>
+                <td>Статус</td>
+            </tr>";
+    while ($user_articles_row = mysql_fetch_array($user_articles_result)) {
+        echo "<tr>
+                <td>$admin_articles_row[0]</td>
+                <td>$admin_articles_row[2]</td>
+                <td>$admin_articles_row[3]</td>
+                <td>$admin_articles_row[4]</td>
+                <td>$admin_articles_row[6]</td>
+                <td>$admin_articles_row[5]</td>
+                <td>$admin_articles_row[1]</td>
+                <td>$admin_articles_row[7]</td>
+            </tr>
+          </table>";
+    }
+
+
 }
 ?>

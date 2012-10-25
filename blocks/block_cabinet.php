@@ -41,9 +41,13 @@
 
                                <br> <label><span>Тип статьи:</span>
                                 <select name='type'>";
+                                $user_id_query = "SELECT id FROM users WHERE email='$_SESSION[email]'";
+                                $user_id_result = mysql_query($user_id_query);
+                                $user_id_row = mysql_fetch_array($user_id_result);
+                                $user_id = $user_id_row[0];
                                     foreach ($cabinet->selectTypes() as $key => $value) {
                                         echo $value;
-                                    }  
+                                    }
                                 echo
                                 "</select>
                                 </label>
@@ -51,7 +55,9 @@
                                 <label><span>Заголовок статьи:</span><input type='text' name='title' style='width:40%; min-width: 80px; font-weight: bold;'></label>
                                 <label>Текст статьи<textarea id='text' name='text' rows='20'></textarea></label><br>
                                 <input type='hidden' name='email' value='$_SESSION[email]'>
-                                <input type='hidden' name='date' value='$date'>";
+                                <input type='hidden' name='date' value='$date'>
+                                <input type='hidden' name='user_id' value='$user_id'>";
+
                                 echo $cabinet->selectStatus(1);
                                 echo
                                 "<button type='submit' name='submit' value='article_add'>Отправить</button>
