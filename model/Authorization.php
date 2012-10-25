@@ -48,7 +48,9 @@ class Authorization {
                         $this->messages[] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='./index.php'>Главная страница</a>";
                         $to = $email;
                         $subject = 'Регистрация';
-                        $message = '';
+                        $message = "<p>Вы зарегистрировались на сайте zarabotai-tut.com!</p>
+                                    <p>Ваш логин: $email</p>
+                                    <p>Ваш пароль: $password</p>";
                         mail($to, $subject, $message);
                     } else {
                         $this->messages[] = "<div class='alert alert-block'><h4>ОШИБКА!</h4>Ошибка! Вы не зарегистрированы.</div>";
