@@ -383,5 +383,37 @@ class AdminEdition {
             echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
         }
     }
+
+    public function themeAdd() {
+        if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
+        $theme_add_query = "INSERT INTO themes (theme) VALUES ('$theme')";
+        if ($theme_add_result = mysql_query($theme_add_query)) {
+            echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
+        } else {
+            echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+        }
+    }
+
+    public function themeEdit() {
+        if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
+        if (isset($_POST[theme_edit_id])) {$theme_edit_id = $this->quote_smart($_POST[theme_edit_id]); if ($theme_edit_id == '') {unset($theme_edit_id);}}
+        if (isset($theme)&&isset($theme_edit_id)) {
+            $theme_edit_query = "UPDATE themes SET theme='$theme' WHERE id='$theme_edit_id'";
+            if (mysql_query($theme_edit_query)) {
+                echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
+            }
+        } else {
+            echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+        }
+    }
+
+    public function themeDel() {
+        if (isset($_POST[theme_del_id])) {
+            $theme_del_query = "DELETE FROM themes WHERE id='$_POST[theme_del_id]'";
+        }
+        if (mysql_query($theme_del_query)) {
+            echo "<div class='alert alert-success'>".$this->alert_success_delete."</div>";
+        }
+    }
 }
 ?>
