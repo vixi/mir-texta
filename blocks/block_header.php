@@ -22,6 +22,11 @@
                 </script>
                 <div class="clear"></div>
             </nav>
+            <?php
+            if (substr($_SERVER[REQUEST_URI], -9) == 'index.php') {
+                include 'blocks/block_slideshow.php';
+            }
+            ?>
         </div>
         <div class="clear"></div>
     </div>

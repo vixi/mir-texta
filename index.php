@@ -34,11 +34,7 @@ if (isset($_GET[articles_id])) {$articles_id = $index->get_protect($_GET[article
     <body>
     <div class="bg-top">
             <?php
-            if (!isset($news_id) and !isset ($articles_id)) {
-                include 'blocks/block_header_index.php';
-            } else {
-                include 'blocks/block_header.php';
-            }
+            include 'blocks/block_header.php';
             if (isset($news_id)) {
                 include 'blocks/block_news.php';
             }
