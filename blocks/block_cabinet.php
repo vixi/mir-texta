@@ -43,7 +43,7 @@
                                 <select name='type'>";
                                     foreach ($cabinet->selectTypes() as $key => $value) {
                                         echo $value;
-                                    }  
+                                    }
                                 echo
                                 "</select>
                                 </label>
