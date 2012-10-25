@@ -10,7 +10,7 @@ html,body {height:100%;
 }
  /* тёмная тенsdfasdfь */
 
-p{padding-bottom:0px;z-index:1;font-size: 13px; line-height: 18px; margin-top:0px;}
+p {padding-bottom:0px;z-index:1;font-size: 13px; line-height: 18px; margin-top:0px;}
 a{color:#0088CC;outline:none;cursor:pointer;text-decoration:none;}
 a:hover{text-decoration: underline; cursor: pointer;}
 /*  Header styles */
