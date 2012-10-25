@@ -540,7 +540,7 @@ label, input, button, select, textarea {
     border-radius: 6px;
     margin-bottom: 30px;
     text-align: center;
-    padding: 20px;
+    padding: 100px 20px;
 }
 .hero-unit h1 {
     color: inherit;
