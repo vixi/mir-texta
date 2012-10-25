@@ -40,7 +40,16 @@ class Authorization {
                 } else {
                     $registration_insert_query = "INSERT INTO users (email,password,wmz,wmr,yandex) VALUES('$email','$password','$wmz','$wmr','$yandex')";
                     if (mysql_query($registration_insert_query)) {
-                        $this->messages[] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='../index.php'>Главная страница</a>";
+                        $session_id_query = "SELECT id FROM users WHERE email='$email'";
+                        $session_id_result = mysql_query($session_id_query);
+                        $session_id_row = mysql_fetch_array($session_id_result);
+                        $_SESSION['email'] = $email;
+                        $_SESSION['id'] = $session_id_row[0]; //тут беда
+                        $this->messages[] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='./index.php'>Главная страница</a>";
+                        $to = $email;
+                        $subject = 'Регистрация';
+                        $message = '';
+                        mail($to, $subject, $message);
                     } else {
                         $this->messages[] = "<div class='alert alert-block'><h4>ОШИБКА!</h4>Ошибка! Вы не зарегистрированы.</div>";
                     }
