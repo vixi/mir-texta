@@ -4,6 +4,7 @@ require_once 'model/config.php';
 require_once 'model/AdminFormation.class.php';
 require_once 'model/AdminEdition.class.php';
 require_once "model/db_connection.php";
+require_once "controller/AdminController.php";
 ?>
 <!DOCTYPE html>
 <html>

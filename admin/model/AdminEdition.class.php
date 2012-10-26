@@ -1,24 +1,11 @@
 <?php
 class AdminEdition {
 
-    private $alert_messages = array();
-
     private $alert_success_add     = 'Добавление завершено.';
     private $alert_success_delete  = 'Удаление завершено.';
     private $alert_success_changes = 'Изменение завершено.';
     private $alert_error_field     = 'Вы не заполнили одно из полей.';
     private $alert_error_image     = 'Неверное расширение изображения.';
-/*
-    private $alert_success_add;
-    private $alert_success_delete;
-    private $alert_success_changes;
-    private $alert_error_field;
-    private $alert_error_image;
-*/
-    public function __construct($alerts_messages)
-    {
-        $this->alert_messages = $alerts_messages;
-    }
 
     public function get_protect($value)
     {
@@ -34,10 +21,10 @@ class AdminEdition {
 
     public function quote_smart($value)
     {
-            $value = trim($value);
-            $value = stripslashes($value);
-            $value = mysql_real_escape_string($value);
-            return $value;
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = mysql_real_escape_string($value);
+        return $value;
     }
 
     public function sectionDataSubmit()
@@ -394,11 +381,11 @@ class AdminEdition {
         }
     }
 
-    public function themeEdit() {
+    public function themeEdit($theme_id) {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
-        if (isset($_POST[theme_edit_id])) {$theme_edit_id = $this->quote_smart($_POST[theme_edit_id]); if ($theme_edit_id == '') {unset($theme_edit_id);}}
-        if (isset($theme)&&isset($theme_edit_id)) {
-            $theme_edit_query = "UPDATE themes SET theme='$theme' WHERE id='$theme_edit_id'";
+        if (isset($_POST[theme_id])) {$theme_id = $this->quote_smart($_POST[theme_id]); if ($theme_id == '') {unset($theme_id);}}
+        if (isset($theme)&&isset($theme_id)) {
+            $theme_edit_query = "UPDATE themes SET theme='$theme' WHERE id='$theme_id'";
             if (mysql_query($theme_edit_query)) {
                 echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
             }
@@ -407,9 +394,9 @@ class AdminEdition {
         }
     }
 
-    public function themeDel() {
-        if (isset($_POST[theme_del_id])) {
-            $theme_del_query = "DELETE FROM themes WHERE id='$_POST[theme_del_id]'";
+    public function themeDel($theme_id) {
+        if (isset($_POST[theme_id])) {
+            $theme_del_query = "DELETE FROM themes WHERE id='$theme_id'";
         }
         if (mysql_query($theme_del_query)) {
             echo "<div class='alert alert-success'>".$this->alert_success_delete."</div>";

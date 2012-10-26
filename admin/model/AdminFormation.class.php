@@ -251,8 +251,8 @@ class AdminFormation {
         return $top_news_text_exit;
     }
 
-    public function getThemeName($theme_edit_id) {
-        $theme_name_query = "SELECT theme FROM themes WHERE id='$theme_edit_id'";
+    public function getThemeName($theme_id) {
+        $theme_name_query = "SELECT theme FROM themes WHERE id='$theme_id'";
         $theme_name_result = mysql_query($theme_name_query);
         $theme_name_row = mysql_fetch_array($theme_name_result);
         $theme_name_exit = $theme_name_row[0];

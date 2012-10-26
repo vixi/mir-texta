@@ -65,8 +65,8 @@
                                 С <a href='about.php'>правилами</a> работы сайта согласен!
                                 </label>
                                 <div class='control-group'>
-                                <div class='controls' id='reg_submit'>
-                                <button type='submit' class='btn' name='submit' value='registration' >Регистрация</button>
+                                <div class='controls'>
+                                <button id='reg_submit' type='submit' class='btn' name='submit' value='registration'>Регистрация</button>
                                 </div>
 
                             </form>";
@@ -80,12 +80,10 @@
                 }
                 ?>
                 <script>
-                    $('#reg_submit').hide(0);
-                    $('.confirm').click(function () {
-                        $('#reg_submit').show(300);
-                    });
-                </script>
 
+
+
+                </script>
             </div>
         </div>
     </div>
