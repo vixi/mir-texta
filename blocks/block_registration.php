@@ -61,11 +61,11 @@
                                 </div>
                                 </div>
                                 <label class='checkbox'>
-                                <input type='checkbox'>
+                                <input type='checkbox' class='confirm'>
                                 С <a href='about.php'>правилами</a> работы сайта согласен!
                                 </label>
                                 <div class='control-group'>
-                                <div class='controls'>
+                                <div class='controls' id='reg_submit'>
                                 <button type='submit' class='btn' name='submit' value='registration' >Регистрация</button>
                                 </div>
 
@@ -79,6 +79,13 @@
                     }
                 }
                 ?>
+                <script>
+                    $('#reg_submit').hide(0);
+                    $('.confirm').click(function () {
+                        $('#reg_submit').show(300);
+                    });
+                </script>
+
             </div>
         </div>
     </div>
