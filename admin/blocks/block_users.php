@@ -25,6 +25,19 @@ if (isset($_GET[user_id])) {
           Yandex: $yandex";
     $user_articles_query = "SELECT * FROM user_articles WHERE email='$_GET[user_email]'";
     $user_articles_result = mysql_query($user_articles_query);
+
+    while ($user_articles_row = mysql_fetch_array($user_articles_result)) {
+        $user_articles_exit[] = "<tr>
+                                    <td>$user_articles_row[3]</td>
+                                    <td>$user_articles_row[5]</td>
+                                    <td>$user_articles_row[6]</td>
+                                    <td>$user_articles_row[8]</td>
+                                    <td>$user_articles_row[9]</td>
+                                    <td>$user_articles_row[10]</td>
+                                    <td>$user_articles_row[11]</td>
+                                    <td>$user_articles_row[12]</td>
+                                </tr>";
+    }
     echo "<table>
             <tr>
                 <td>Название статьи</td>
@@ -36,20 +49,12 @@ if (isset($_GET[user_id])) {
                 <td>Дата</td>
                 <td>Статус</td>
             </tr>";
-    while ($user_articles_row = mysql_fetch_array($user_articles_result)) {
-        $admin_articles_exit[] = "<tr>
-                                    <td>$admin_articles_row[0]</td>
-                                    <td>$admin_articles_row[2]</td>
-                                    <td>$admin_articles_row[3]</td>
-                                    <td>$admin_articles_row[4]</td>
-                                    <td>$admin_articles_row[6]</td>
-                                    <td>$admin_articles_row[5]</td>
-                                    <td>$admin_articles_row[1]</td>
-                                    <td>$admin_articles_row[7]</td>
-                                </tr>";
-    }
-    foreach ($admin_articles_exit as $key => $value) {
-        echo $value;
+    if ($user_articles_exit) {
+        foreach ($user_articles_exit as $k => $v) {
+            echo $v;
+        }
+    } else {
+        echo "У этого пользователя нету статей";
     }
     echo "</table>";
 }
