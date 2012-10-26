@@ -23,7 +23,7 @@
                 <div class="clear"></div>
             </nav>
             <?php
-            if (substr($_SERVER[REQUEST_URI], -9) == 'index.php') {
+            if (substr($_SERVER[REQUEST_URI], -9) == 'index.php' or substr($_SERVER[REQUEST_URI], -1) == '/') {
                 include 'blocks/block_slideshow.php';
             }
             ?>
