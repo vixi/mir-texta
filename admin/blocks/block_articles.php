@@ -1,23 +1,22 @@
-тут надо бутштраповских тэгов наставить
-<table>
+<table class="table table-hover">
     <tr>
-        <td>Пользователь</td>
-        <td>Заголовок статьи</td>
-        <td>Тематика</td>
-        <td>Вид статьи</td>
-        <td>Символов</td>
-        <td>Стоимость</td>
-        <td>Уникальность</td>
-        <td>Дата</td>
-        <td>Статус</td>
+        <th>Пользователь</th>
+        <th>Заголовок статьи</th>
+        <th>Тематика</th>
+        <th>Вид статьи</th>
+        <th>Символов</th>
+        <th>Стоимость</th>
+        <th>Уникальность</th>
+        <th>Дата</th>
+        <th>Статус</th>
     </tr>
 <?php
 $admin_articles_query = "SELECT * FROM user_articles";
 $admin_articles_result = mysql_query($admin_articles_query);
 while ($admin_articles_row = mysql_fetch_array($admin_articles_result)) {
     $admin_articles_exit[] = "<tr>
-                                <td>$admin_articles_row[2]</td>
-                                <td>$admin_articles_row[4]</td>
+                                <td><a href='#'>$admin_articles_row[2]</a></td>
+                                <td><a href='#'>$admin_articles_row[4]</a></td>
                                 <td>$admin_articles_row[5]</td>
                                 <td>$admin_articles_row[7]</td>
                                 <td>$admin_articles_row[8]</td>

@@ -1,15 +1,14 @@
-тут надо бутштраповских тэгов наставить
 <?php
 $admin_users_query = "SELECT id,email FROM users";
 $admin_users_result = mysql_query($admin_users_query);
 while ($admin_users_row = mysql_fetch_array($admin_users_result)) {
-    $admin_users_exit[] = "<a href=./index.php?action=users&user_id=$admin_users_row[0]&user_email=$admin_users_row[1]>$admin_users_row[1]</a><br>";
+    $admin_users_exit[] = "<li><a href=./index.php?action=users&user_id=$admin_users_row[0]&user_email=$admin_users_row[1]>$admin_users_row[1]</a></li>";
 }
-echo "<div>";
+echo "<div class='well' style='float:left; width:180px; overflow: hidden;'><ul class='nav nav-list'> ";
 foreach ($admin_users_exit as $key => $value) {
         echo $value;
 }
-echo "</div>";
+echo "</ul></div>";
 
 if (isset($_GET[user_id])) {
     $user_info_query = "SELECT email,wmz,wmr,yandex FROM users WHERE id='$_GET[user_id]'";
@@ -19,7 +18,7 @@ if (isset($_GET[user_id])) {
     $wmz = $user_info_row[1];
     $wmr = $user_info_row[2];
     $yandex = $user_info_row[3];
-    echo "E-mail: $email<br>
+    echo "<div class='span9'>E-mail: <a href='mailto:".$email."?subject=Zarabotai-tut.com'>$email</a><br>
           WMZ: $wmz<br>
           WMR: $wmr<br>
           Yandex: $yandex";
@@ -28,7 +27,7 @@ if (isset($_GET[user_id])) {
 
     while ($user_articles_row = mysql_fetch_array($user_articles_result)) {
         $user_articles_exit[] = "<tr>
-                                    <td>$user_articles_row[3]</td>
+                                    <td><a href='#'>$user_articles_row[3]</a></td>
                                     <td>$user_articles_row[5]</td>
                                     <td>$user_articles_row[6]</td>
                                     <td>$user_articles_row[8]</td>
@@ -38,16 +37,16 @@ if (isset($_GET[user_id])) {
                                     <td>$user_articles_row[12]</td>
                                 </tr>";
     }
-    echo "<table>
+    echo "<table class='table table-hover'>
             <tr>
-                <td>Название статьи</td>
-                <td>Тема</td>
-                <td>Тип статьи</td>
-                <td>Символов</td>
-                <td>Стоимость</td>
-                <td>Уникальность</td>
-                <td>Дата</td>
-                <td>Статус</td>
+                <th>Название статьи</th>
+                <th>Тема</th>
+                <th>Тип статьи</th>
+                <th>Символов</th>
+                <th>Стоимость</th>
+                <th>Уникальность</th>
+                <th>Дата</th>
+                <th>Статус</th>
             </tr>";
     if ($user_articles_exit) {
         foreach ($user_articles_exit as $k => $v) {
@@ -56,6 +55,6 @@ if (isset($_GET[user_id])) {
     } else {
         echo "У этого пользователя нету статей";
     }
-    echo "</table>";
+    echo "</table></div>";
 }
 ?>

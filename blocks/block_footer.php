@@ -14,7 +14,7 @@ icq:1-528-700
     </div>
 
 </div>
-</footer> 
+</footer>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
