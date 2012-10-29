@@ -1,8 +1,4 @@
 <?php
-$admin_controller = new AdminController();
-$admin_controller->getController($_GET[action]);
-$admin_controller->postController($_POST[submit],$_POST[theme_id]);
-
 $admin_users_query = "SELECT id,email FROM users";
 $admin_users_result = mysql_query($admin_users_query);
 while ($admin_users_row = mysql_fetch_array($admin_users_result)) {
@@ -62,14 +58,15 @@ if (isset($_GET[user_id])) {
     echo "</table></div>";
 }
 
+echo "<div class='span8'>";
+
 if (isset($_GET[article_id])) {
     $read_article_query = "SELECT title,text,theme,type,tags,date,status FROM user_articles WHERE id='$_GET[article_id]'";
     $read_article_result = mysql_query($read_article_query);
     $read_article_row = mysql_fetch_array($read_article_result);
     $admin = new UserCabinet();
     echo
-        "<div class='span8'>
-        <form action='users.php' method='post'>
+        "<form action='users.php' method='post'>
             Тема статьи: <p>$read_article_row[2]</p>
             Тип статьи: <p>$read_article_row[3]</p>
             Теги, через запятую: <p>$read_article_row[4]</p>
@@ -91,7 +88,12 @@ if (isset($_GET[article_id])) {
         </p>
 
             <button type='submit' name='submit' value='article_response'>Отправить</button>
-        </div>
+
         </form>";
 }
+
+$admin_controller = new AdminController();
+$admin_controller->getController($_GET[action]);
+$admin_controller->postController($_POST[submit],$_POST[theme_id]);
+echo "</div>";
 ?>
