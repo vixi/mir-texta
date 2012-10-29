@@ -1,4 +1,4 @@
-    <div class="span8">
+<div class="span8">
         <?php
         $admin_controller = new AdminController();
         $admin_controller->getController($_GET[action]);
