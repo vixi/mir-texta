@@ -402,5 +402,18 @@ class AdminEdition {
             echo "<div class='alert alert-success'>".$this->alert_success_delete."</div>";
         }
     }
+
+    public function articleResponse() {
+        if (isset($_POST[article_status])&&isset($_POST[article_id])) {
+            echo 'ok';
+            $article_id = $this->get_protect($_POST[article_id]);
+            $article_status = $this->get_protect($_POST[article_status]);
+            echo 'ok';
+            $article_status_update_query = "UPDATE user_articles SET status='$article_status' WHERE id='$article_id'";
+            echo 'ok';
+            $article_status_update_result = mysql_query($article_status_update_query);
+            echo 'ok';
+        }
+    }
 }
 ?>
