@@ -2,7 +2,7 @@
 $admin_users_query = "SELECT id,email FROM users";
 $admin_users_result = mysql_query($admin_users_query);
 while ($admin_users_row = mysql_fetch_array($admin_users_result)) {
-    $admin_users_exit[] = "<li><a href=./users.php?action=users&user_id=$admin_users_row[0]&user_email=$admin_users_row[1]>$admin_users_row[1]</a></li>";
+    $admin_users_exit[] = "<li><a href=./users.php?user_id=$admin_users_row[0]&user_email=$admin_users_row[1]>$admin_users_row[1]</a></li>"; //пока по email, после нормализации сделать по id
 }
 echo "<div class='well' style='float:left; width:180px; overflow: hidden;'><ul class='nav nav-list'> ";
 foreach ($admin_users_exit as $key => $value) {
@@ -71,16 +71,22 @@ if (isset($_GET[article_id])) {
             Тип статьи: <p>$read_article_row[3]</p>
             Теги, через запятую: <p>$read_article_row[4]</p>
             Заголовок статьи: <p>$read_article_row[0]</p>
-            Текст статьи: <p>$read_article_row[1]</p>
-            Статус:
+            Текст статьи: <p>$read_article_row[1]</p>";
+        $status_query = "SELECT status FROM user_articles WHERE id='$_GET[article_id]'";
+        $status_result = mysql_query($status_query);
+        $status_row = mysql_fetch_array($status_result);
+
+        echo
+            "Текущий статус: <p>$status_row[0]</p>
+            Изменить статус:
             <p>
             <select name='article_status'>";
-        $result = mysql_query("SELECT id,status FROM status");
-        while ($row = mysql_fetch_array($result)) {
-            $exit[] = "<option value='$row[0]'>$row[1]</option>";
+        $options_result = mysql_query("SELECT id,status FROM status");
+        while ($options_row = mysql_fetch_array($options_result)) {
+            $options_exit[] = "<option value='$options_row[0]'>$options_row[1]</option>";
         }
-        foreach ($exit as $q => $e) {
-            echo $e;
+        foreach ($options_exit as $options_k => $options_v) {
+            echo $options_v;
         }
         echo
         "</select>
