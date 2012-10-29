@@ -15,14 +15,14 @@ class UserCabinet {
         if ($select_user_articles_result = mysql_query($select_user_articles_query)) {
         while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
             $select_user_articles_exit[] = "<tr>
-                                                <td>$select_user_articles_row[2]</td>
-                                                <td>$select_user_articles_row[4]</td>
+                                                <td>$select_user_articles_row[3]</td>
                                                 <td>$select_user_articles_row[5]</td>
-                                                <td>$select_user_articles_row[7]</td>
+                                                <td>$select_user_articles_row[6]</td>
                                                 <td>$select_user_articles_row[8]</td>
                                                 <td>$select_user_articles_row[9]</td>
                                                 <td>$select_user_articles_row[10]</td>
                                                 <td>$select_user_articles_row[11]</td>
+                                                <td>$select_user_articles_row[12]</td>
                                             </tr>";
             }
             return $select_user_articles_exit;
