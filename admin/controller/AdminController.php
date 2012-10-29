@@ -1,7 +1,7 @@
 <?php
 class AdminController {
 
-    public function postController($post,$theme_id) {
+    public function postController($post,$theme_id = null) {
         $post_controller = new AdminEdition();
         switch ($post) {
         case 'theme_add_submit':
@@ -67,6 +67,9 @@ class AdminController {
             break;
         case 'qa_edit_submit':
             $post_controller->qaEdit();
+            break;
+        case 'article_response':
+            $post_controller->articleResponse();
             break;
         //------------
         }
