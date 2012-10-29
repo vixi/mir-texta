@@ -258,5 +258,14 @@ class AdminFormation {
         $theme_name_exit = $theme_name_row[0];
         return $theme_name_exit;
     }
+
+    public function getUserList() {
+        $admin_users_query = "SELECT id,email FROM users";
+        $admin_users_result = mysql_query($admin_users_query);
+        while ($admin_users_row = mysql_fetch_array($admin_users_result)) {
+            $admin_users_exit[] = "<li><a href=./users.php?action=show_user_articles&user_id=$admin_users_row[0]&user_email=$admin_users_row[1]>$admin_users_row[1]</a></li>"; //пока по email, после нормализации сделать по id
+        }
+        return $admin_users_exit;
+    }
 }
 ?>

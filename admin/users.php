@@ -23,6 +23,7 @@ require_once "controller/AdminController.php";
         <div class="container">
             <?php
             include 'blocks/block_header.php';
+            include 'blocks/block_users_sidebar.php';
             include 'blocks/block_users.php';
             include 'blocks/block_footer.php';
             ?>

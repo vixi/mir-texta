@@ -76,7 +76,7 @@ class AdminController {
     }
 
     public function getController($get) {
-        $get_controller = new AdminEdition($get);
+        $get_controller = new AdminFormation($get);
         switch ($get) {
         case 'theme_add' :
             include 'includes/theme_add.php';
@@ -144,7 +144,14 @@ class AdminController {
             break;
         case 'theme_add' :
             include 'includes/theme_add.php';
+            break;
         //--------------
+        case 'show_user_articles' :
+            include 'includes/user_articles_list.php';
+            break;
+        case 'show_article' :
+            include 'includes/user_article.php';
+            break;
         }
     }
 }
