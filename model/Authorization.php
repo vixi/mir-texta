@@ -23,15 +23,14 @@ class Authorization {
             unset($email);
             }
         if (isset($_POST['password'])) {$password = md5($this->quote_smart($_POST['password'])); if ($password =='') {unset($password);}}
-        /*if (preg_match("[a-zA-Z0-9_]", $password) == 0) {
+        /*if (preg_match("#[A-z!@\#$%^&*\(\)_\-\+:;,\.0-9]{6,20}#", $password) == 0) {
             $this->messages[] = "Неверный формат пароля";
             unset($password);
-            }*/
+        }*/
         if (isset($_POST['wmz']))      {$wmz = $this->quote_smart($_POST['wmz']); if ($wmz =='') {unset($wmz);}}
         if (isset($_POST['wmr']))      {$wmr = $this->quote_smart($_POST['wmr']); if ($wmr =='') {unset($wmr);}}
         if (isset($_POST['yandex']))   {$yandex = $this->quote_smart($_POST['yandex']); if ($yandex =='') {unset($yandex);}}
         if (isset($email)&&isset($password)) {
-
             $registration_check_query = "SELECT id FROM users WHERE email='$email'";
             $registration_check_result = mysql_query($registration_check_query);
             $registration_check_row = mysql_fetch_array($registration_check_result);
@@ -46,17 +45,16 @@ class Authorization {
                     $_SESSION['email'] = $email;
                     $_SESSION['id'] = $session_id_row[0]; //тут беда
                     $this->messages[] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='./index.php'>Главная страница</a>";
+
+
+
                     $to = $email;
-                    $headers  =   'MIME-Version: 1.0' . "\r\n";
-                    $headers .= 'Content-type: text/html;
-                                    charset=iso-8859-1' . "\r\n";
-                    $headers .= 'To: Клиент №1 <client001@server.com>' . "\r\n";
-                    $headers .= 'From: News Robot <news@server.com>' . "\r\n";
-                    $headers .= 'Cc: News Archive <newsarc@server.com' . "\r\n";
-                    $headers .= 'Bcc: newscheck@server.com' . "\r\n";
                     $subject = "Регистрация";
                     $message = "test";
                     mail("...vixi...", "Регистрация", "test");
+
+
+
                 } else {
                     $this->messages[] = "<div class='alert alert-block'><h4>ОШИБКА!</h4>Ошибка! Вы не зарегистрированы.</div>";
                 }

@@ -9,7 +9,7 @@ class pageFormation {
         }
         if (!is_numeric($value)) {
             //$value = mysql_real_escape_string($value);
-            die('Do not even try...');                    //delete?
+            die('Stop hacking please');                    //delete?
         }
         return $value;
     }
