@@ -152,8 +152,10 @@ class AdminController {
         case 'show_article' :
             include 'includes/user_article.php';
             break;
+        case 'show_all_articles' :
+            include 'includes/show_all_articles.php';
+            break;
         }
     }
 }
-
 ?>

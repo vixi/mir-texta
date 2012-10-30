@@ -5,7 +5,7 @@
             <li class="active">
               <a href="index.php">Управление сайтом</a>
             </li>
-            <li><a href="./articles.php">Статьи <span class="badge badge-info">8</span></a></li>
+            <li><a href="./articles.php?action=show_all_articles">Статьи <span class="badge badge-info">8</span></a></li>
             <li><a href="./users.php">Пользователи  <span class="badge badge-info">256</span></a></li>
             <li><a href="./settings.php">Настройки </a></li>
 
