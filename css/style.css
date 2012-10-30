@@ -488,7 +488,6 @@ label, input, button, select, textarea {
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 0px;
-    margin-left:90px;
     padding: 4px 14px;
     text-align: center;
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.749);
@@ -574,6 +573,27 @@ hero-unit p {
     border-top-color: rgba(0, 0, 0, 0.102);
     color: #FFFFFF;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251);
+}
+.btn-large {
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: normal;
+    padding: 9px 14px;
+}
+.btn-primary {
+    background-color: #006DCC;
+    background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-bottom-color: rgba(0, 0, 0, 0.251);
+    border-left-color: rgba(0, 0, 0, 0.102);
+    border-right-color: rgba(0, 0, 0, 0.102);
+    border-top-color: rgba(0, 0, 0, 0.102);
+    color: #FFFFFF;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251);
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+    background-color: #0044CC;
+    color: #FFFFFF;
 }
 .breadcrumb {
     background-color: #F5F5F5;

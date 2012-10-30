@@ -30,16 +30,16 @@
                                 echo
                                 "</select>
                                 </label>
-                               <div class='popover bottom'>
+      <!--                          <div class='popover bottom'>
   <div class='arrow'></div>
-  <h5 class='popover-title'>Описание раздела</h5>
+ <h5 class='popover-title'>Описание раздела</h5>
   <div class='popover-content'>
     <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
   </div>
-</div>
+</div>-->
 
 
-                               <br> <label><span>Тип статьи:</span>
+                              <label><span>Тип статьи:</span>
                                 <select name='type'>";
                                 $user_id_query = "SELECT id FROM users WHERE email='$_SESSION[email]'";
                                 $user_id_result = mysql_query($user_id_query);
@@ -52,7 +52,7 @@
                                 "</select>
                                 </label>
                                 <label><span>Теги, через запятую:</span><input type='text' name='tags' style='width:40%; min-width: 80px'></label>
-                                <label><span>Заголовок статьи:</span><input type='text' name='title' style='width:40%; min-width: 80px; font-weight: bold;'></label>
+                                <label><span>Название статьи:</span><input type='text' name='title' style='width:40%; min-width: 80px; font-weight: bold;'></label>
                                 <label>Текст статьи<textarea id='text' name='text' rows='20'></textarea></label><br>
                                 <input type='hidden' name='email' value='$_SESSION[email]'>
                                 <input type='hidden' name='date' value='$date'>
@@ -60,7 +60,7 @@
 
                                 echo $cabinet->selectStatus(1);
                                 echo
-                                "<button type='submit' name='submit' value='article_add'>Отправить</button>
+                                "<button type='submit' name='submit' class='btn btn-large btn-primary' value='article_add'>Отправить текст на проверку</button>
                             </form>";
                             break;
                         case 'cabinet' :
