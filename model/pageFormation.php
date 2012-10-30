@@ -9,7 +9,7 @@ class pageFormation {
         }
         if (!is_numeric($value)) {
             //$value = mysql_real_escape_string($value);
-            die('Do not even try...');                    //delete?
+            die('Stop hacking please');                    //delete?
         }
         return $value;
     }
@@ -62,7 +62,7 @@ class pageFormation {
         $top_news_query = "SELECT title,text,image FROM top_new";
         $top_news_result = mysql_query($top_news_query);
         $top_news_row = mysql_fetch_array($top_news_result);
-        $top_news_exit =                          "<h3 class='pad1'>".$top_news_row[0]."</h3>".
+        $top_news_exit = "<h3 class='pad1'>".$top_news_row[0]."</h3>".
                          "<p>".$top_news_row[1]."</p>";
         return $top_news_exit;
     }
@@ -88,9 +88,9 @@ class pageFormation {
         $full_news_result = mysql_query($full_news_query);
         while ($full_news_row = mysql_fetch_array($full_news_result)) {
             $full_news_exit[] = "<div class='single_new' id='$full_news_row[0]'>".
-                                "<h4>".$full_news_row[1]."</h4>".
-                                "<p class='extra-wrap'>".$full_news_row[2]."</p>".
-                                "<p class='extra-wrap'>".$full_news_row[3]."</p>".
+                                    "<h4>".$full_news_row[1]."</h4>".
+                                    "<p class='extra-wrap'>".$full_news_row[2]."</p>".
+                                    "<p class='extra-wrap'>".$full_news_row[3]."</p>".
                                 "</div>";
         }
         return $full_news_exit;
@@ -102,9 +102,9 @@ class pageFormation {
         $full_articles_result = mysql_query($full_articles_query);
         while ($full_articles_row = mysql_fetch_array($full_articles_result)) {
             $full_articles_exit[] = "<div class='single_article' id='$full_articles_row[0]'>".
-                                    "<h4>".$full_articles_row[1]."</h4>".
-                                    "".$full_articles_row[2]."".
-                                    "<p class='extra-wrap'>".$full_articles_row[3]."</p>".
+                                        "<h4>".$full_articles_row[1]."</h4>".
+                                        "".$full_articles_row[2]."".
+                                        "<p class='extra-wrap'>".$full_articles_row[3]."</p>".
                                     "</div>";
         }
         return $full_articles_exit;
@@ -157,12 +157,11 @@ class pageFormation {
         $faq_result = mysql_query($faq_query);
         while ($faq_row = mysql_fetch_array($faq_result)) {
             $faq_exit[] = "<div class='wrapper faq'>".
-                          "<div class='text2 fleft'>".$faq_row[0]."</div>".
+                              "<div class='text2 fleft'>".$faq_row[0]."</div>".
                           "</div>".
-
                           "<div class='wrapper faq2'>".
-                          "<div class='text2 fleft'>".''."</div>".
-                          "<p class='extra-wrap'>".$faq_row[1]."</p>".
+                            "<div class='text2 fleft'>".''."</div>".
+                            "<p class='extra-wrap'>".$faq_row[1]."</p>".
                           "</div>";
         }
         return $faq_exit;

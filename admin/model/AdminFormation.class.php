@@ -28,7 +28,6 @@ class AdminFormation {
         $section_result = mysql_query($section_query);
         $section_row = mysql_fetch_array($section_result);
         $section_exit = $section_row[0];
-
         return $section_exit;
     }
 
@@ -38,7 +37,6 @@ class AdminFormation {
         $section_result = mysql_query($section_query);
         $section_row = mysql_fetch_array($section_result);
         $section_exit = $section_row[0];
-
         return $section_exit;
     }
 
@@ -120,7 +118,6 @@ class AdminFormation {
         $top_features_title_result = mysql_query($top_features_title_query);
         $top_features_title_row = mysql_fetch_array($top_features_title_result);
         $top_features_title_exit = $top_features_title_row[0];
-
         return $top_features_title_exit;
     }
 
@@ -130,7 +127,6 @@ class AdminFormation {
         $top_features_text_result = mysql_query($top_features_text_query);
         $top_features_text_row = mysql_fetch_array($top_features_text_result);
         $top_features_text_exit = $top_features_text_row[0];
-
         return $top_features_text_exit;
     }
 
@@ -263,9 +259,25 @@ class AdminFormation {
         $admin_users_query = "SELECT id,email FROM users";
         $admin_users_result = mysql_query($admin_users_query);
         while ($admin_users_row = mysql_fetch_array($admin_users_result)) {
-            $admin_users_exit[] = "<li><a href=./users.php?action=show_user_articles&user_id=$admin_users_row[0]&user_email=$admin_users_row[1]>$admin_users_row[1]</a></li>"; //пока по email, после нормализации сделать по id
+            $admin_users_exit[] = "<li><a href='./users.php?action=show_user_articles&user_id=$admin_users_row[0]&user_email=$admin_users_row[1]'>$admin_users_row[1]</a></li>"; //пока по email, после нормализации сделать по id
         }
         return $admin_users_exit;
+    }
+
+    public function countUsers() {
+        $users_count_query = "SELECT COUNT(*) FROM users";
+        $users_count_result = mysql_query($users_count_query);
+        $users_count_row = mysql_fetch_row($users_count_result);
+        $users_count_total = $users_count_row[0];
+        return $users_count_total;
+    }
+
+    public function countUserArticles() {
+        $user_articles_count_query = "SELECT COUNT(*) FROM user_articles";
+        $user_articles_count_result = mysql_query($user_articles_count_query);
+        $user_articles_count_row = mysql_fetch_row($user_articles_count_result);
+        $user_articles_count_total = $user_articles_count_row[0];
+        return $user_articles_count_total;
     }
 }
 ?>

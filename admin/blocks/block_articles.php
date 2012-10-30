@@ -1,7 +1,7 @@
 <table class="table table-hover">
     <tr>
-        <th>Пользователь</th>
         <th>Заголовок статьи</th>
+        <th>Пользователь</th>
         <th>Тематика</th>
         <th>Вид статьи</th>
         <th>Символов</th>
@@ -10,24 +10,8 @@
         <th>Дата</th>
         <th>Статус</th>
     </tr>
-<?php
-$admin_articles_query = "SELECT * FROM user_articles";
-$admin_articles_result = mysql_query($admin_articles_query);
-while ($admin_articles_row = mysql_fetch_array($admin_articles_result)) {
-    $admin_articles_exit[] = "<tr>
-                                <td><a href='#'>$admin_articles_row[2]</a></td>
-                                <td><a href='#'>$admin_articles_row[4]</a></td>
-                                <td>$admin_articles_row[5]</td>
-                                <td>$admin_articles_row[7]</td>
-                                <td>$admin_articles_row[8]</td>
-                                <td>$admin_articles_row[9]</td>
-                                <td>$admin_articles_row[10]</td>
-                                <td>$admin_articles_row[11]</td>
-                                <td>$admin_articles_row[12]</td>
-                             </tr>";
-    }
-    foreach ($admin_articles_exit as $key => $value) {
-           echo $value;
-    }
-    echo "</table>";
-?>
+    <?php
+    $admin_controller = new AdminController();
+    $admin_controller->getController($_GET[action]);
+    ?>
+</table>

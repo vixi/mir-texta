@@ -83,18 +83,8 @@ require_once "controller/AdminController.php";
         <div class="container">
             <?php
             include 'blocks/block_header.php';
-            switch ($_GET[action]) {
-                case 'articles':
-                    include 'blocks/block_articles.php';
-                    break;
-                case 'users':
-                    include 'blocks/block_users.php';
-                    break;
-                default:
-                    include 'blocks/block_sidebar.php';
-                    include 'blocks/block_admin.php';
-                    break;
-            }
+            include 'blocks/block_sidebar.php';
+            include 'blocks/block_admin.php';
             include 'blocks/block_footer.php';
             ?>
         </div>
