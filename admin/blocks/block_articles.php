@@ -1,7 +1,7 @@
 <table class="table table-hover">
     <tr>
-        <th>Пользователь</th>
         <th>Заголовок статьи</th>
+        <th>Пользователь</th>
         <th>Тематика</th>
         <th>Вид статьи</th>
         <th>Символов</th>
