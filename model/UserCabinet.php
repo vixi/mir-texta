@@ -11,7 +11,7 @@ class UserCabinet {
 
     public function selectUserArticles()
     {
-        $select_user_articles_query = "SELECT * FROM user_articles WHERE email='$_SESSION[email]'";
+        $select_user_articles_query = "SELECT *  FROM user_articles WHERE email='$_SESSION[email]'";
         if ($select_user_articles_result = mysql_query($select_user_articles_query)) {
         while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
             $select_user_articles_exit[] = "<tr>

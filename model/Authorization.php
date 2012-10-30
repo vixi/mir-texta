@@ -48,10 +48,6 @@ class Authorization {
 
 
 
-                    $to = $email;
-                    $subject = "Регистрация";
-                    $message = "test";
-                    mail("...vixi...", "Регистрация", "test");
 
 
 

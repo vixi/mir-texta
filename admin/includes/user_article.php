@@ -10,7 +10,7 @@
             Тип статьи: <p>".$read_article_row[3]."</p>
             Теги, через запятую: <p>".$read_article_row[4]."</p>
             Заголовок статьи: <p>".$read_article_row[0]."</p>
-            Текст статьи: <p>".$read_article_row[1]."</p>";
+            Текст статьи: <p>".$read_article_row[4]."</p>";
 
     echo
         "Текущий статус: <p>".$admin_edition->getArticleStatusById($article_id)."</p>
