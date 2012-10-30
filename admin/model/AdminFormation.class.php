@@ -263,5 +263,21 @@ class AdminFormation {
         }
         return $admin_users_exit;
     }
+
+    public function countUsers() {
+        $users_count_query = "SELECT COUNT(*) FROM users";
+        $users_count_result = mysql_query($users_count_query);
+        $users_count_row = mysql_fetch_row($users_count_result);
+        $users_count_total = $users_count_row[0];
+        return $users_count_total;
+    }
+
+    public function countUserArticles() {
+        $user_articles_count_query = "SELECT COUNT(*) FROM user_articles";
+        $user_articles_count_result = mysql_query($user_articles_count_query);
+        $user_articles_count_row = mysql_fetch_row($user_articles_count_result);
+        $user_articles_count_total = $user_articles_count_row[0];
+        return $user_articles_count_total;
+    }
 }
 ?>
