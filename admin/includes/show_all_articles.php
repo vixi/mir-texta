@@ -14,7 +14,7 @@ while ($admin_articles_row = mysql_fetch_array($admin_articles_result)) {
                                 <td>$admin_articles_row[12]</td>
                              </tr>";
     }
-    foreach ($admin_articles_exit as $key => $value) {
-           echo $value;
-    }
+foreach ($admin_articles_exit as $key => $value) {
+        echo $value;
+}
 ?>

@@ -28,7 +28,6 @@ class AdminFormation {
         $section_result = mysql_query($section_query);
         $section_row = mysql_fetch_array($section_result);
         $section_exit = $section_row[0];
-
         return $section_exit;
     }
 
@@ -38,7 +37,6 @@ class AdminFormation {
         $section_result = mysql_query($section_query);
         $section_row = mysql_fetch_array($section_result);
         $section_exit = $section_row[0];
-
         return $section_exit;
     }
 
@@ -120,7 +118,6 @@ class AdminFormation {
         $top_features_title_result = mysql_query($top_features_title_query);
         $top_features_title_row = mysql_fetch_array($top_features_title_result);
         $top_features_title_exit = $top_features_title_row[0];
-
         return $top_features_title_exit;
     }
 
@@ -130,7 +127,6 @@ class AdminFormation {
         $top_features_text_result = mysql_query($top_features_text_query);
         $top_features_text_row = mysql_fetch_array($top_features_text_result);
         $top_features_text_exit = $top_features_text_row[0];
-
         return $top_features_text_exit;
     }
 
