@@ -11,18 +11,22 @@ class UserCabinet {
 
     public function selectUserArticles()
     {
-        $select_user_articles_query = "SELECT *  FROM user_articles WHERE email='$_SESSION[email]'";
+        $select_user_articles_query = "SELECT user_articles.*, themes.theme, types.type, status.status FROM user_articles
+                                       INNER JOIN themes ON user_articles.theme = themes.id
+                                       INNER JOIN types ON user_articles.type = types.id
+                                       INNER JOIN status ON user_articles.status = status.id
+                                       WHERE email='$_SESSION[email]'";
         if ($select_user_articles_result = mysql_query($select_user_articles_query)) {
         while ($select_user_articles_row = mysql_fetch_array($select_user_articles_result)) {
             $select_user_articles_exit[] = "<tr>
-                                                <td>$select_user_articles_row[3]</td>
-                                                <td>$select_user_articles_row[5]</td>
-                                                <td>$select_user_articles_row[6]</td>
-                                                <td>$select_user_articles_row[8]</td>
-                                                <td>$select_user_articles_row[9]</td>
-                                                <td>$select_user_articles_row[10]</td>
-                                                <td>$select_user_articles_row[11]</td>
-                                                <td>$select_user_articles_row[12]</td>
+                                                <td>$select_user_articles_row[title]</td>
+                                                <td>$select_user_articles_row[theme]</td>
+                                                <td>$select_user_articles_row[type]</td>
+                                                <td>$select_user_articles_row[symbols]</td>
+                                                <td>$select_user_articles_row[price]</td>
+                                                <td>$select_user_articles_row[originality]</td>
+                                                <td>$select_user_articles_row[date]</td>
+                                                <td>$select_user_articles_row[status]</td>
                                             </tr>";
             }
             return $select_user_articles_exit;
@@ -70,18 +74,20 @@ class UserCabinet {
         if (isset($_POST[status])) {$status = $this->quote_smart($_POST[status]); if ($status == '') {unset($status);}}
         if (isset($_POST[user_id])) {$user_id = $this->quote_smart($_POST[user_id]); if ($user_id == '') {unset($user_id);}}
         if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)&&isset($user_id)) {
+            $symbols = strip_tags($text);
+            $symbols = str_replace(' ', '', $symbols);
+            $symbols = strlen($symbols);
 
-            $symbols = strlen($text)/2;
             $price = '?';
             $originality = '';
 
-            $query = "INSERT INTO user_articles ( user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality    date,  status)
-                                         VALUES ($user_id, '$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status',)";
+            $query = "INSERT INTO user_articles ( user_id,  theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
+                                         VALUES ($user_id,'$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
 
             if ($result = mysql_query($query)) {
                 echo "<div class='alert alert-success'>ok</div>";
             } else {
-                echo "<div class='alert alert-error'>neok</div>";
+                echo "<div class='alert alert-error'>ne ok</div>";
             }
         }
     }
