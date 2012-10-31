@@ -2,10 +2,10 @@
     $user_info_query = "SELECT email,wmz,wmr,yandex FROM users WHERE id='$_GET[user_id]'";
     $user_info_result = mysql_query($user_info_query);
     $user_info_row = mysql_fetch_array($user_info_result);
-    $email = $user_info_row[0];
-    $wmz = $user_info_row[1];
-    $wmr = $user_info_row[2];
-    $yandex = $user_info_row[3];
+    $email = $user_info_row[email];
+    $wmz = $user_info_row[wmz];
+    $wmr = $user_info_row[wmr];
+    $yandex = $user_info_row[yandex];
     echo "<div class='span9'>E-mail: <a href='mailto:".$email."?subject=Zarabotai-tut.com'>$email</a><br>
         WMZ: $wmz<br>
         WMR: $wmr<br>

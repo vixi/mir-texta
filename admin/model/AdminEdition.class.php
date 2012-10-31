@@ -26,9 +26,23 @@ class AdminEdition {
         $value = mysql_real_escape_string($value);
         return $value;
     }
-
+/*
+    public function postArrayProtection()
+    {
+        foreach ($_POST as $key => $value) {
+            if (isset($_POST[$key])) {
+                $$key = $this->quote_smart($_POST[$key]);
+                if ($$key == '')
+                    {unset($$key);
+                }
+            }
+        }
+    }
+*/
     public function sectionDataSubmit()
     {
+        $this->postArrayProtection();
+        echo $section_data_title;
         if (isset($_POST[section_data_title])) {$section_data_title = $this->quote_smart($_POST[section_data_title]); if ($section_data_title == '') {unset($section_data_title);}}
         if (isset($_POST[section_data_text])) {$section_data_text = $this->quote_smart($_POST[section_data_text]); if ($section_data_text == '') {unset($section_data_text);}}
         if (isset($_POST[section_data_block])) {$section_data_block = $this->quote_smart($_POST[section_data_block]); if ($section_data_block == '') {unset($section_data_block);}}
@@ -52,7 +66,6 @@ class AdminEdition {
                 $top_news_edit_query = "UPDATE top_new SET image='$top_news_image',
                                                            title='$top_news_title',
                                                            text='$top_news_text' WHERE id='1'";
-                //perhaps there is bug with image type
                 if ($_FILES['top_news_image']['type']=='image/jpeg' or $_FILES['top_news_image']['type']=='image/png') {
                     $uploads_dir = '../upload/';
                     $tmp_name = $_FILES[top_news_image][tmp_name];
@@ -178,6 +191,8 @@ class AdminEdition {
             }
             if ($advantages_add_result = mysql_query($advantages_add_query) and move_uploaded_file($tmp_name, $uploads_dir.$name)) {
                 echo "<div class='alert alert-success'>".$this->alert_success_add."</div>";
+            } else {
+                echo "<div class='alert alert-error'>error</div>";
             }
         } else {
             echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
@@ -381,7 +396,8 @@ class AdminEdition {
         }
     }
 
-    public function themeEdit($theme_id) {
+    public function themeEdit($theme_id)
+    {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
         if (isset($_POST[theme_id])) {$theme_id = $this->quote_smart($_POST[theme_id]); if ($theme_id == '') {unset($theme_id);}}
         if (isset($theme)&&isset($theme_id)) {

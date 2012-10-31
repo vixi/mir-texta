@@ -76,15 +76,6 @@ class AdminFormation {
         return $news_date_exit;
     }
 
-    public function getAdvantagesImage($id)
-    {
-        $advantages_image_query = "SELECT image FROM advantages WHERE id='$id'";
-        $advantages_image_result = mysql_query($advantages_image_query);
-        $advantages_image_row = mysql_fetch_array($advantages_image_result);
-        $advantages_image_exit = $advantages_image_row[0];
-        return $advantages_image_exit;
-    }
-
     public function getAdvantagesTitle($id)
     {
         $advantages_title_query = "SELECT title FROM advantages WHERE id='$id'";
