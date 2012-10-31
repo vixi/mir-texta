@@ -41,8 +41,6 @@ class AdminEdition {
 */
     public function sectionDataSubmit()
     {
-        $this->postArrayProtection();
-        echo $section_data_title;
         if (isset($_POST[section_data_title])) {$section_data_title = $this->quote_smart($_POST[section_data_title]); if ($section_data_title == '') {unset($section_data_title);}}
         if (isset($_POST[section_data_text])) {$section_data_text = $this->quote_smart($_POST[section_data_text]); if ($section_data_text == '') {unset($section_data_text);}}
         if (isset($_POST[section_data_block])) {$section_data_block = $this->quote_smart($_POST[section_data_block]); if ($section_data_block == '') {unset($section_data_block);}}
