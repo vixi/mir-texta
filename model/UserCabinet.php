@@ -64,13 +64,6 @@ class UserCabinet {
 
     public function articleAdd()
     {
-        foreach ($_POST as $key => $value) {
-            $$key = $this->quote_smart($_POST[$key]);
-            if ($$key == '')
-                {unset($$key);
-            }
-        }
-        /*
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
         if (isset($_POST[type])) {$type = $this->quote_smart($_POST[type]); if ($type == '') {unset($type);}}
         if (isset($_POST[title])) {$title = $this->quote_smart($_POST[title]); if ($title == '') {unset($title);}}
@@ -80,14 +73,17 @@ class UserCabinet {
         if (isset($_POST[date])) {$date = $this->quote_smart($_POST[date]); if ($date == '') {unset($date);}}
         if (isset($_POST[status])) {$status = $this->quote_smart($_POST[status]); if ($status == '') {unset($status);}}
         if (isset($_POST[user_id])) {$user_id = $this->quote_smart($_POST[user_id]); if ($user_id == '') {unset($user_id);}}
-        */
         if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)&&isset($user_id)) {
             $symbols = strip_tags($text);
             $symbols = str_replace(' ', '', $symbols);
-            $symbols = mb_strlen($symbols,"UTF-8");
+            $symbols = mb_strlen($symbols, "UTF-8");
 
-            $price = '?';
             $originality = '';
+
+            $price = 'Количество символов *
+                      Цена за символ по определенной теме *
+                      Коэффициент типа *
+                      Коэффициент уникальности';
 
             $query = "INSERT INTO user_articles ( user_id,  theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
                                          VALUES ($user_id,'$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
