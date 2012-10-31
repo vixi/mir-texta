@@ -45,12 +45,28 @@ class Authorization {
                     $_SESSION['email'] = $email;
                     $_SESSION['id'] = $session_id_row[0]; //тут беда
                     $this->messages[] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='./index.php'>Главная страница</a>";
-
-
-
-
-
-
+/*
+                    // Читаем настройки config
+                    require_once './lib/mail_config.php';
+                    // Подключаем класс FreakMailer
+                    require_once './lib/MailClass.php';
+                    // инициализируем класс
+                    $mailer = new FreakMailer();
+                    // Устанавливаем тему письма
+                    $mailer->Subject = 'Это тест';
+                    // Задаем тело письма
+                    $mailer->Body = 'Это тест моей почтовой системы!';
+                    // Добавляем адрес в список получателей
+                    $mailer->AddAddress('sushkevichpavel@gmail.com', 'Pavel Sushkevich');
+                    if(!$mailer->Send()) {
+                        echo 'Не могу отослать письмо!';
+                    }
+                    else {
+                        echo 'Письмо отослано!';
+                    }
+                    $mailer->ClearAddresses();
+                    $mailer->ClearAttachments();
+*/
                 } else {
                     $this->messages[] = "<div class='alert alert-block'><h4>ОШИБКА!</h4>Ошибка! Вы не зарегистрированы.</div>";
                 }

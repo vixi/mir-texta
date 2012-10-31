@@ -415,10 +415,12 @@ class AdminEdition {
     }
 
     public function getArticleStatusById($article_id) {
-        $status_query = "SELECT status FROM user_articles WHERE id='$article_id'";
+        $status_query = "SELECT user_articles.status, status.status FROM user_articles
+                         INNER JOIN status ON user_articles.status = status.id
+                         WHERE user_articles.id='$article_id'";
         $status_result = mysql_query($status_query);
         $status_row = mysql_fetch_array($status_result);
-        $status = $status_row[0];
+        $status = $status_row[status];
         return $status;
     }
 }

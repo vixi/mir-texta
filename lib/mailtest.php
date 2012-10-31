@@ -1,6 +1,6 @@
 <?php
 // Читаем настройки config
-require_once 'config.php';
+require_once 'mail_config.php';
 
 // Подключаем класс FreakMailer
 require_once 'MailClass.php';

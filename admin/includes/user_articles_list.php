@@ -10,7 +10,7 @@
         WMZ: $wmz<br>
         WMR: $wmr<br>
         Yandex: $yandex";
-    $user_articles_query = "SELECT ua.*, t.theme theme1, t1.type type1, s.status status1 FROM user_articles ua inner join themes t on t.id = ua.theme inner join types t1 on t1.id = ua.type inner join status s on s.id = ua.status WHERE email='$_GET[user_email]'"; // email='$_GET[user_email]'
+    $user_articles_query = "SELECT ua.*, t.theme theme1, t1.type type1, s.status status1 FROM user_articles ua inner join themes t on t.id = ua.theme inner join types t1 on t1.id = ua.type inner join status s on s.id = ua.status WHERE email='$_GET[user_email]'";
     $user_articles_result = mysql_query($user_articles_query);
 
     while ($user_articles_row = mysql_fetch_array($user_articles_result)) {
