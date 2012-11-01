@@ -26,7 +26,7 @@
                                 </div>
                             </form>";
 
-                      echo "<form class='grid_10 bs-docs-example form-horizontal' action='./cabinet.php?action=cabinet' method='post'>
+                      echo "<form class='grid_10 bs-docs-example form-horizontal' style='float:right' action='./cabinet.php?action=cabinet' method='post'>
                                 <legend>Регистрация на сайте</legend>
                                 <div class='control-group'>
                                 <label class='control-label' for='inputEmail'>Ваш Email:<b>*</b> </label>
