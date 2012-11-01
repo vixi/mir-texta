@@ -80,14 +80,28 @@ class UserCabinet {
 
             $originality = '';
 
-            $price = 'Количество символов *
-                      Цена за символ по определенной теме *
-                      Коэффициент типа *
-                      Коэффициент уникальности';
+            $rate_query = "SELECT rate FROM themes WHERE id='$theme'";
+            $rate_result = mysql_query($rate_query);
+            $rate_row = mysql_fetch_array($rate_result);
 
-            $query = "INSERT INTO user_articles ( user_id,  theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
-                                         VALUES ($user_id,'$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
 
+            $type_multiplier_query = "SELECT multiplier FROM types WHERE id='$type'";
+            $type_multiplier_result = mysql_query($type_multiplier_query);
+            $type_multiplier_row = mysql_fetch_array($type_multiplier_result);
+
+            $rate = $rate_row[0];
+            $type_multiplier = $type_multiplier_row[0];
+
+            $price = $symbols * $rate * $type_multiplier;
+
+            /*
+            'Количество символов *
+            Цена за символ по определенной теме *
+            Коэффициент типа
+            */
+
+            $query = "INSERT INTO user_articles (  user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
+                                         VALUES ('$user_id','$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
             if ($result = mysql_query($query)) {
                 echo "<div class='alert alert-success'>ok</div>";
             } else {
