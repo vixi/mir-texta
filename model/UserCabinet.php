@@ -80,15 +80,9 @@ class UserCabinet {
 
             $originality = '';
 
-<<<<<<< HEAD
-            $query = "INSERT INTO user_articles (  user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
-                                         VALUES ('$user_id','$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
-=======
             $rate_query = "SELECT rate FROM themes WHERE id='$theme'";
             $rate_result = mysql_query($rate_query);
             $rate_row = mysql_fetch_array($rate_result);
->>>>>>> origin/development
-
 
             $type_multiplier_query = "SELECT multiplier FROM types WHERE id='$type'";
             $type_multiplier_result = mysql_query($type_multiplier_query);
