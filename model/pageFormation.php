@@ -98,7 +98,7 @@ class pageFormation {
 
     public function getFullArticless()
     {
-        $full_articles_query = "SELECT id,title,text FROM articles";
+        $full_articles_query = "SELECT id,text FROM articles";
         $full_articles_result = mysql_query($full_articles_query);
         while ($full_articles_row = mysql_fetch_array($full_articles_result)) {
             $full_articles_exit[] = "<div class='single_article' id='$full_articles_row[0]'>".
@@ -188,6 +188,44 @@ class pageFormation {
                                    "<p class='padbot6'>".$top_features_row[1]."</p>";
         }
         return $top_features_exit[$var];
+    }
+
+    public function getTypes()
+    {
+        $get_types_query = "SELECT type FROM types";
+        $get_types_result = mysql_query($get_types_query);
+        while ($get_types_row = mysql_fetch_array($get_types_result)) {
+            $get_types_exit[] = "<th>$get_types_row[0]"."<br>(За 1000 символов)"."</th>";
+        };
+        return $get_types_exit;
+    }
+
+    public function getTypeMultiplierById($id)
+    {
+        $get_types_query = "SELECT multiplier FROM types WHERE id='$id'";
+        $get_types_result = mysql_query($get_types_query);
+        $get_types_row = mysql_fetch_array($get_types_result);
+        return $get_types_row[0];
+    }
+
+    public function getPriceTable()
+    {
+        $themes_query = "SELECT theme,rate,description FROM themes";
+        $types_query = "SELECT multiplier FROM types";
+
+        $themes_result = mysql_query($themes_query);
+        $types_result = mysql_query($types_query);
+
+        while ($themes_row = mysql_fetch_array($themes_result)) {
+
+            $exit[] = "<tr>
+                           <td>$themes_row[0]</td>
+                           <td>$themes_row[2]</td>".
+                           "<td>".$this->getTypeMultiplierById(1)*$themes_row[1]*'1000'.'$'."</td>".
+                           "<td>".$this->getTypeMultiplierById(2)*$themes_row[1]*'1000'.'$'."</td>".
+                       "</tr>";
+        };
+        return $exit;
     }
 }
 ?>

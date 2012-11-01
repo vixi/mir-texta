@@ -3,6 +3,7 @@
 $theme_edit_query = "SELECT id,theme,rate FROM themes";
 $theme_edit_result = mysql_query($theme_edit_query);
 while ($theme_edit_row = mysql_fetch_array($theme_edit_result)) {
+    $theme_edit_row[2] = $theme_edit_row[2]*1000;
     $theme_edit_exit[] = "<a href='settings.php?action=theme_edit&theme_id=$theme_edit_row[0]'>$theme_edit_row[1]</a><br>Цена за 1000 символов: $theme_edit_row[2]<br>";
 }
 foreach ($theme_edit_exit as $k => $v) {
