@@ -81,8 +81,8 @@ class UserCabinet {
             $price = '?';
             $originality = '';
 
-            $query = "INSERT INTO user_articles ( user_id,  theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
-                                         VALUES ($user_id,'$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
+            $query = "INSERT INTO user_articles (  user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
+                                         VALUES ('$user_id','$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
 
             if ($result = mysql_query($query)) {
                 echo "<div class='alert alert-success'>ok</div>";
