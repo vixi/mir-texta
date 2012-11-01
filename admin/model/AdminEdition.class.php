@@ -386,10 +386,11 @@ class AdminEdition {
 
     public function themeAdd() {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
+        if (isset($_POST[description])) {$description = $this->quote_smart($_POST[description]); if ($description == '') {unset($description);}}
         if (isset($_POST[rate])) {$rate = $this->quote_smart($_POST[rate]); if ($rate == '') {unset($rate);}}
-        if (isset($theme)&&isset($rate)) {
+        if (isset($theme)&&isset($rate)&&isset($description)) {
             $rate = $rate/1000;
-            $theme_add_query = "INSERT INTO themes (theme,rate) VALUES ('$theme','$rate')";
+            $theme_add_query = "INSERT INTO themes (theme,rate,description) VALUES ('$theme','$rate','$description')";
             if ($theme_add_result = mysql_query($theme_add_query)) {
                 echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
             } else {
@@ -401,10 +402,11 @@ class AdminEdition {
     public function themeEdit($theme_id)
     {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
+        if (isset($_POST[description])) {$description = $this->quote_smart($_POST[description]); if ($description == '') {unset($description);}}
         if (isset($_POST[theme_id])) {$theme_id = $this->quote_smart($_POST[theme_id]); if ($theme_id == '') {unset($theme_id);}}
-        if (isset($_POST[rate])) {$rate = $this->quote_smart($_POST[rate]); if ($rate == '') {unset($rate);}}
-        if (isset($theme)&&isset($theme_id)&&isset($rate)) {
-            $theme_edit_query = "UPDATE themes SET theme='$theme',rate='$rate' WHERE id='$theme_id'";
+        if (isset($_POST[rate])) {$rate = $this->quote_smart($_POST[rate])/1000; if ($rate == '') {unset($rate);}}
+        if (isset($theme)&&isset($theme_id)&&isset($rate)&&isset($description)) {
+            $theme_edit_query = "UPDATE themes SET theme='$theme',rate='$rate',description='$description' WHERE id='$theme_id'";
             if (mysql_query($theme_edit_query)) {
                 echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
             }

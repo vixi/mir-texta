@@ -16,15 +16,17 @@ if (isset($_GET[theme_id]) and $_GET[theme_id] != '') {
    if ($theme_id = $admin->get_protect($_GET[theme_id])) {
 //       if ($theme_edit_id == ) {
            $theme_edit_name = $admin->getThemeName($theme_id);
-           $theme_edit_rate = $admin->getThemeRate($theme_id);
+           $theme_edit_rate = $admin->getThemeRate($theme_id)*1000;
+           $theme_edit_description = $admin->getThemeDescription($theme_id);
 //      } else {
 //          $die = "<div class='alert alert-error'>Новости номер $theme_edit_id не существует.</div>";
 //           echo $die;
 //      }
         if (!$die) {
             echo "<form action='./settings.php' method='post'>
-                    <label for='theme'>Название темы:</label><input id='theme' name='theme' value='$theme_edit_name'><br>
-                    <label for='theme'>Цена за 1000 символов:</label><input id='theme' name='rate' value='$theme_edit_rate'><br>
+                    <label for='theme'>Название темы:<br><input id='theme' name='theme' type='text' value='$theme_edit_name'></label>
+                    <label for='description'>Описание темы:<br><textarea id='description' name='description'>$theme_edit_description</textarea></label>
+                    <label for='rate'>Цена за 1000 символов:<br><input id='rate' type='text'  name='rate' value='$theme_edit_rate'></label>
                     <input type='hidden' name='theme_id' value='$theme_id'>
                     <button type='submit' class='btn btn-primary' name='submit' value='theme_edit_submit'>Save changes</button>
                     <button type='reset' class='btn'>Cancel</button>

@@ -254,6 +254,14 @@ class AdminFormation {
         return $theme_rate_exit;
     }
 
+    public function getThemeDescription($theme_id) {
+        $theme_description_query = "SELECT description FROM themes WHERE id='$theme_id'";
+        $theme_description_result = mysql_query($theme_description_query);
+        $theme_description_row = mysql_fetch_array($theme_description_result);
+        $theme_description_exit = $theme_description_row[0];
+        return $theme_description_exit;
+    }
+
     public function getTypeName($type_id) {
         $type_name_query = "SELECT type FROM types WHERE id='$type_id'";
         $type_name_result = mysql_query($type_name_query);
