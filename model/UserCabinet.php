@@ -84,7 +84,6 @@ class UserCabinet {
             $rate_result = mysql_query($rate_query);
             $rate_row = mysql_fetch_array($rate_result);
 
-
             $type_multiplier_query = "SELECT multiplier FROM types WHERE id='$type'";
             $type_multiplier_result = mysql_query($type_multiplier_query);
             $type_multiplier_row = mysql_fetch_array($type_multiplier_result);
