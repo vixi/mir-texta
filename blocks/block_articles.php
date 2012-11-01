@@ -2,12 +2,30 @@
     <div class="container_24">
         <div class="wrapper">
             <div class="grid_24 padRT">
-                    <?php
-                    $articles = new pageFormation();
-                    foreach ($articles->getFullArticless() as $key => $value) {
-                        echo $value;
-                    }
-                    ?>
+                <h4>Цены</h4>
+                <?php
+                $articles = new pageFormation();
+                echo "
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тема статьи</th>
+                            <th>Описание статьи</th>";
+                            foreach($articles->getTypes() as $key => $value) {
+                                echo $value;
+                            }
+                echo "
+                        </tr>
+                    </thead>
+                    <tbody>";
+                    foreach($articles->getPriceTable() as $key => $value) {
+                                echo $value;
+                            }
+                echo "
+                    </tbody>
+                </table>";
+                ?>
+
             </div>
         </div>
     </div>
