@@ -195,7 +195,7 @@ class pageFormation {
         $get_types_query = "SELECT type FROM types";
         $get_types_result = mysql_query($get_types_query);
         while ($get_types_row = mysql_fetch_array($get_types_result)) {
-            $get_types_exit[] = "<th>$get_types_row[0]</th>";
+            $get_types_exit[] = "<th>$get_types_row[0]"."<br>(За 1000 символов)"."</th>";
         };
         return $get_types_exit;
     }
@@ -221,8 +221,8 @@ class pageFormation {
             $exit[] = "<tr>
                            <td>$themes_row[0]</td>
                            <td>$themes_row[2]</td>".
-                           "<td>".$this->getTypeMultiplierById(1)*$themes_row[1]."</td>".
-                           "<td>".$this->getTypeMultiplierById(2)*$themes_row[1]."</td>".
+                           "<td>".$this->getTypeMultiplierById(1)*$themes_row[1]*'1000'.'$'."</td>".
+                           "<td>".$this->getTypeMultiplierById(2)*$themes_row[1]*'1000'.'$'."</td>".
                        "</tr>";
         };
         return $exit;
