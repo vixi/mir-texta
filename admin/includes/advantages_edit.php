@@ -14,7 +14,6 @@ $admin = new AdminFormation();
 if (isset($_GET[advantages_edit_id]) and $_GET[advantages_edit_id] != '') {
    if ($advantages_edit_id = $admin->get_protect($_GET[advantages_edit_id])) {
 //       if ($advantages_edit_id == ) {
-           $advantages_edit_image = $admin->getAdvantagesImage($advantages_edit_id);
            $advantages_edit_title = $admin->getAdvantagesTitle($advantages_edit_id);
            $advantages_edit_text  = $admin->getAdvantagesText($advantages_edit_id);
 //      } else {
@@ -24,7 +23,6 @@ if (isset($_GET[advantages_edit_id]) and $_GET[advantages_edit_id] != '') {
    }
     if (!$die) {
         echo "<form action='./index.php' method='post' enctype='multipart/form-data'>
-                <label for='image'>Image:</label><input id='image' name='advantages_edit_image' type='file'><br>
                 <label for='title'>Title:</label><input id='title' name='advantages_edit_title' type='text' value='$advantages_edit_title'><br>
                 <label for='text'>Text:</label><textarea id='text' name='advantages_edit_text' rows='7' style='width:400px;'>$advantages_edit_text</textarea><br>
                 <input type='hidden' name='advantages_edit_id' value='$advantages_edit_id'>

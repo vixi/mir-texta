@@ -2,6 +2,6 @@
     <?php
     $admin_controller = new AdminController();
     $admin_controller->getController($_GET[action]);
-    $admin_controller->postController($_POST[submit],$_POST[theme_id]);
+    $admin_controller->postController($_POST[submit],$_POST[theme_id], $_POST[type_id]);
     ?>
 </div>

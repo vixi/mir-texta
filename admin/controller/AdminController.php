@@ -1,9 +1,19 @@
 <?php
 class AdminController {
 
-    public function postController($post,$theme_id = null) {
+    public function postController($post,$theme_id = null, $type_id = null) {
         $post_controller = new AdminEdition();
         switch ($post) {
+        case 'type_add_submit':
+            $post_controller->typeAdd();
+            break;
+        case 'type_edit_submit':
+            $post_controller->typeEdit($type_id);
+            break;
+        case 'type_del_submit':
+            $post_controller->typeDel($type_id);
+            break;
+        //---------------
         case 'theme_add_submit':
             $post_controller->themeAdd();
             break;
@@ -78,6 +88,16 @@ class AdminController {
     public function getController($get) {
         $get_controller = new AdminFormation($get);
         switch ($get) {
+        case 'type_add' :
+            include 'includes/type_add.php';
+            break;
+        case 'type_edit' :
+            include 'includes/type_edit.php';
+            break;
+        case 'type_del' :
+            include 'includes/type_del.php';
+            break;
+        //--------------
         case 'theme_add' :
             include 'includes/theme_add.php';
             break;

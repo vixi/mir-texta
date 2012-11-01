@@ -76,15 +76,6 @@ class AdminFormation {
         return $news_date_exit;
     }
 
-    public function getAdvantagesImage($id)
-    {
-        $advantages_image_query = "SELECT image FROM advantages WHERE id='$id'";
-        $advantages_image_result = mysql_query($advantages_image_query);
-        $advantages_image_row = mysql_fetch_array($advantages_image_result);
-        $advantages_image_exit = $advantages_image_row[0];
-        return $advantages_image_exit;
-    }
-
     public function getAdvantagesTitle($id)
     {
         $advantages_title_query = "SELECT title FROM advantages WHERE id='$id'";
@@ -253,6 +244,30 @@ class AdminFormation {
         $theme_name_row = mysql_fetch_array($theme_name_result);
         $theme_name_exit = $theme_name_row[0];
         return $theme_name_exit;
+    }
+
+    public function getThemeRate($theme_id) {
+        $theme_rate_query = "SELECT rate FROM themes WHERE id='$theme_id'";
+        $theme_rate_result = mysql_query($theme_rate_query);
+        $theme_rate_row = mysql_fetch_array($theme_rate_result);
+        $theme_rate_exit = $theme_rate_row[0];
+        return $theme_rate_exit;
+    }
+
+    public function getTypeName($type_id) {
+        $type_name_query = "SELECT type FROM types WHERE id='$type_id'";
+        $type_name_result = mysql_query($type_name_query);
+        $type_name_row = mysql_fetch_array($type_name_result);
+        $type_name_exit = $type_name_row[0];
+        return $type_name_exit;
+    }
+
+    public function getTypeMultiplier($type_id) {
+        $type_multiplier_query = "SELECT multiplier FROM types WHERE id='$type_id'";
+        $type_multiplier_result = mysql_query($type_multiplier_query);
+        $type_multiplier_row = mysql_fetch_array($type_multiplier_result);
+        $type_multiplier_exit = $type_multiplier_row[0];
+        return $type_multiplier_exit;
     }
 
     public function getUserList() {

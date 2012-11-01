@@ -76,19 +76,44 @@ class UserCabinet {
         if (isset($theme)&&isset($type)&&isset($title)&&isset($text)&&isset($tags)&&isset($email)&&isset($date)&&isset($status)&&isset($user_id)) {
             $symbols = strip_tags($text);
             $symbols = str_replace(' ', '', $symbols);
-            $symbols = strlen($symbols);
+            $symbols = mb_strlen($symbols, "UTF-8");
 
-            $price = '?';
             $originality = '';
+
+<<<<<<< HEAD
+            $query = "INSERT INTO user_articles (  user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
+                                         VALUES ('$user_id','$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
+=======
+            $rate_query = "SELECT rate FROM themes WHERE id='$theme'";
+            $rate_result = mysql_query($rate_query);
+            $rate_row = mysql_fetch_array($rate_result);
+>>>>>>> origin/development
+
+
+            $type_multiplier_query = "SELECT multiplier FROM types WHERE id='$type'";
+            $type_multiplier_result = mysql_query($type_multiplier_query);
+            $type_multiplier_row = mysql_fetch_array($type_multiplier_result);
+
+            $rate = $rate_row[0];
+            $type_multiplier = $type_multiplier_row[0];
+
+            $price = $symbols * $rate * $type_multiplier;
+
+            /*
+            'Количество символов *
+            Цена за символ по определенной теме *
+            Коэффициент типа
+            */
 
             $query = "INSERT INTO user_articles (  user_id,   theme,   type,   title,   text,   tags,   symbols,   price,   email,   originality,   date,   status)
                                          VALUES ('$user_id','$theme','$type','$title','$text','$tags','$symbols','$price','$email','$originality','$date','$status')";
-
             if ($result = mysql_query($query)) {
                 echo "<div class='alert alert-success'>ok</div>";
             } else {
                 echo "<div class='alert alert-error'>ne ok</div>";
             }
+        } else {
+            echo "<div class='alert alert-error'>Вы не заполнили все поля</div>";
         }
     }
 }

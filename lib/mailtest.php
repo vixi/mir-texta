@@ -1,7 +1,5 @@
 <?php
-<<<<<<< HEAD
-function show_form()
-=======
+
 // Читаем настройки config
 require_once 'mail_config.php';
 
@@ -21,7 +19,6 @@ $mailer->Body = 'Это тест моей почтовой системы!';
 $mailer->AddAddress('sushkevichpavel@gmail.com', 'Pavel Sushkevich');
 
 if(!$mailer->Send())
->>>>>>> origin/development
 {
     ?>
 <form action="" method=post>
@@ -39,7 +36,6 @@ if(!$mailer->Send())
         <br /><input type="submit" value="Отправить" name="submit">
     </div>
 </form>
-* Помечены поля, которые необходимо заполнить
 <?
 }
 
@@ -61,9 +57,9 @@ function complete_mail() {
         output_err(2);
     // создаем наше сообщение
     $mess = '
-Имя отправителя:'.$_POST['name'].' 
-Контактный телефон:'.$_POST['tel'].' 
-Контактный email:'.$_POST['email'].' 
+Имя отправителя:'.$_POST['name'].'
+Контактный телефон:'.$_POST['tel'].'
+Контактный email:'.$_POST['email'].'
 '.$_POST['mess'];
     // $to - кому отправляем
     $to = 'rabota@zarabotai-tut.com';

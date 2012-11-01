@@ -26,7 +26,19 @@ class AdminEdition {
         $value = mysql_real_escape_string($value);
         return $value;
     }
-
+/*
+    public function postArrayProtection()
+    {
+        foreach ($_POST as $key => $value) {
+            if (isset($_POST[$key])) {
+                $$key = $this->quote_smart($_POST[$key]);
+                if ($$key == '')
+                    {unset($$key);
+                }
+            }
+        }
+    }
+*/
     public function sectionDataSubmit()
     {
         if (isset($_POST[section_data_title])) {$section_data_title = $this->quote_smart($_POST[section_data_title]); if ($section_data_title == '') {unset($section_data_title);}}
@@ -52,7 +64,6 @@ class AdminEdition {
                 $top_news_edit_query = "UPDATE top_new SET image='$top_news_image',
                                                            title='$top_news_title',
                                                            text='$top_news_text' WHERE id='1'";
-                //perhaps there is bug with image type
                 if ($_FILES['top_news_image']['type']=='image/jpeg' or $_FILES['top_news_image']['type']=='image/png') {
                     $uploads_dir = '../upload/';
                     $tmp_name = $_FILES[top_news_image][tmp_name];
@@ -178,6 +189,8 @@ class AdminEdition {
             }
             if ($advantages_add_result = mysql_query($advantages_add_query) and move_uploaded_file($tmp_name, $uploads_dir.$name)) {
                 echo "<div class='alert alert-success'>".$this->alert_success_add."</div>";
+            } else {
+                echo "<div class='alert alert-error'>error</div>";
             }
         } else {
             echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
@@ -373,19 +386,25 @@ class AdminEdition {
 
     public function themeAdd() {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
-        $theme_add_query = "INSERT INTO themes (theme) VALUES ('$theme')";
-        if ($theme_add_result = mysql_query($theme_add_query)) {
-            echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
-        } else {
-            echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+        if (isset($_POST[rate])) {$rate = $this->quote_smart($_POST[rate]); if ($rate == '') {unset($rate);}}
+        if (isset($theme)&&isset($rate)) {
+            $rate = $rate/1000;
+            $theme_add_query = "INSERT INTO themes (theme,rate) VALUES ('$theme','$rate')";
+            if ($theme_add_result = mysql_query($theme_add_query)) {
+                echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
+            } else {
+                echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+            }
         }
     }
 
-    public function themeEdit($theme_id) {
+    public function themeEdit($theme_id)
+    {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
         if (isset($_POST[theme_id])) {$theme_id = $this->quote_smart($_POST[theme_id]); if ($theme_id == '') {unset($theme_id);}}
-        if (isset($theme)&&isset($theme_id)) {
-            $theme_edit_query = "UPDATE themes SET theme='$theme' WHERE id='$theme_id'";
+        if (isset($_POST[rate])) {$rate = $this->quote_smart($_POST[rate]); if ($rate == '') {unset($rate);}}
+        if (isset($theme)&&isset($theme_id)&&isset($rate)) {
+            $theme_edit_query = "UPDATE themes SET theme='$theme',rate='$rate' WHERE id='$theme_id'";
             if (mysql_query($theme_edit_query)) {
                 echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
             }
@@ -399,6 +418,45 @@ class AdminEdition {
             $theme_del_query = "DELETE FROM themes WHERE id='$theme_id'";
         }
         if (mysql_query($theme_del_query)) {
+            echo "<div class='alert alert-success'>".$this->alert_success_delete."</div>";
+        }
+    }
+
+    public function typeAdd() {
+        if (isset($_POST[type])) {$type = $this->quote_smart($_POST[type]); if ($type == '') {unset($type);}}
+        if (isset($_POST[multiplier])) {$multiplier = $this->quote_smart($_POST[multiplier]); if ($multiplier == '') {unset($multiplier);}}
+        if (isset($type)&&isset($multiplier)) {
+            $type_add_query = "INSERT INTO types (type,multiplier) VALUES ('$type','$multiplier')";
+            if ($type_add_result = mysql_query($type_add_query)) {
+                echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
+            } else {
+                echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+            }
+        } else {
+            echo 'Вы не заполнили одно из полей';
+        }
+    }
+
+    public function typeEdit($type_id)
+    {
+        if (isset($_POST[type])) {$type = $this->quote_smart($_POST[type]); if ($type == '') {unset($type);}}
+        if (isset($_POST[type_id])) {$type_id = $this->quote_smart($_POST[type_id]); if ($type_id == '') {unset($type_id);}}
+        if (isset($_POST[multiplier])) {$multiplier = $this->quote_smart($_POST[multiplier]); if ($multiplier == '') {unset($multiplier);}}
+        if (isset($type)&&isset($type_id)&&isset($multiplier)) {
+            $type_edit_query = "UPDATE types SET type='$type',multiplier='$multiplier' WHERE id='$type_id'";
+            if (mysql_query($type_edit_query)) {
+                echo "<div class='alert alert-success'>".$this->alert_success_changes."</div>";
+            }
+        } else {
+            echo "<div class='alert alert-error'>".$this->alert_error_field."</div>";
+        }
+    }
+
+    public function typeDel($type_id) {
+        if (isset($_POST[type_id])) {
+            $type_del_query = "DELETE FROM types WHERE id='$type_id'";
+        }
+        if (mysql_query($type_del_query)) {
             echo "<div class='alert alert-success'>".$this->alert_success_delete."</div>";
         }
     }
