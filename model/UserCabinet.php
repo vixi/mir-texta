@@ -67,7 +67,7 @@ class UserCabinet {
         if (isset($_POST[theme])) {$theme = $this->quote_smart($_POST[theme]); if ($theme == '') {unset($theme);}}
         if (isset($_POST[type])) {$type = $this->quote_smart($_POST[type]); if ($type == '') {unset($type);}}
         if (isset($_POST[title])) {$title = $this->quote_smart($_POST[title]); if ($title == '') {unset($title);}}
-        if (isset($_POST[text])) {$text = $this->quote_smart($_POST[text]); if ($text == '') {unset($text);}}
+        if (isset($_POST[text])) {$text = $this->quote_smart($_POST[text]); if ($text == '' or strlen($text) < 50) {unset($text);}}
         if (isset($_POST[tags])) {$tags = $this->quote_smart($_POST[tags]); if ($tags == '') {unset($tags);}}
         if (isset($_POST[email])) {$email = $this->quote_smart($_POST[email]); if ($email == '') {unset($email);}}
         if (isset($_POST[date])) {$date = $this->quote_smart($_POST[date]); if ($date == '') {unset($date);}}

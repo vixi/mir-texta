@@ -13,6 +13,7 @@
                                ajax_url: 'http://www.content-watch.ru/public/api/'},
                         success: function(data) {
                             $('.results').html(data.percent);
+                            $('.originality').html(data.percent);
                             var originality = $('.results').html();
                             var article_id = $('.article_id').attr('value');
                             $.ajax({
@@ -21,8 +22,7 @@
                                 data: {originality : originality,
                                        article_id : article_id},
                                 success: function (insert) {
-                                    alert(insert);
-                                    $('.results2').html(insert);
+                                    $('.db_message').html(insert);
                                 }
                             });
                         }
@@ -30,7 +30,7 @@
                 });
 </script>
 <div class="results">...Результаты...</div>
-<div class="results2">...База...</div>
+<div class="db_message">...База...</div>
 <?php
         $admin_edition = new AdminEdition();
         $article_id = $admin_edition->get_protect($_GET[article_id]);
@@ -40,9 +40,11 @@
                                WHERE user_articles.id='$_GET[article_id]'";
         $read_article_result = mysql_query($read_article_query);
         $read_article_row = mysql_fetch_array($read_article_result);
+        if ($read_article_row[originality] == '') {$read_article_row[originality] = 'Уникальность еще не определена';}
 
         echo
         "<form action='users.php' method='post'>
+        Уникальность статьи: <p class='originality'>".$read_article_row[originality]."</p>
         Тема статьи: <p>".$read_article_row[theme]."</p>
         Тип статьи: <p>".$read_article_row[type]."</p>
         Теги, через запятую: <p>".$read_article_row[tags]."</p>
