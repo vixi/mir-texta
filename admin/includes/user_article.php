@@ -7,17 +7,30 @@
                         url: './model/proxy.php',
                         dataType: 'json',
                         data: {text: text,
-                                key: 'N8bW1QnkuYbe3AT',
-                                format: 'json',
-                                test: '1',
-                                ajax_url: 'http://www.content-watch.ru/public/api/'},
+                               key: 'N8bW1QnkuYbe3AT',
+                               format: 'json',
+                               test: '1',
+                               ajax_url: 'http://www.content-watch.ru/public/api/'},
                         success: function(data) {
                             $('.results').html(data.percent);
+                            var originality = $('.results').html();
+                            var article_id = $('.article_id').attr('value');
+                            $.ajax({
+                                type: 'POST',
+                                url: 'model/originality_db_insert.php',
+                                data: {originality : originality,
+                                       article_id : article_id},
+                                success: function (insert) {
+                                    alert(insert);
+                                    $('.results2').html(insert);
+                                }
+                            });
                         }
                     });
                 });
 </script>
 <div class="results">...Результаты...</div>
+<div class="results2">...База...</div>
 <?php
         $admin_edition = new AdminEdition();
         $article_id = $admin_edition->get_protect($_GET[article_id]);
@@ -50,32 +63,8 @@
         }
         echo
         "</select>
-        <input type='hidden' name='article_id' value='$_GET[article_id]'>
+        <input class='article_id' type='hidden' name='article_id' value='$_GET[article_id]'>
         </p>
             <button type='submit' name='submit' value='article_response'>Отправить</button>
         </form>";
 ?>
-<!--<script language='javascript' type='text/javascript'>
-                $('.estimate').click(function() {
-                    $.ajax({
-                        url: 'includes/user_article.php?ajax=get_text',
-                        success: function(response) {
-                            alert(response);
-                            var text = response;
-                            $.ajax({
-                                type: 'POST',
-                                url: './model/proxy.php',
-                                dataType: 'json',
-                                data: {text: text,
-                                       key: 'N8bW1QnkuYbe3AT',
-                                       format: 'json',
-                                       test: '1',
-                                       ajax_url: 'http://www.content-watch.ru/public/api/'},
-                                success: function(data) {
-                                        $('.results').html(data.percent);
-                                }
-                            });
-                        }
-                    });
-                });
-</script>-->
