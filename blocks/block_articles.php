@@ -9,8 +9,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Тема статьи</th>
-                            <th>Описание статьи</th>";
+                            <th>Тема статьи</th>";
                             foreach($articles->getTypes() as $key => $value) {
                                 echo $value;
                             }

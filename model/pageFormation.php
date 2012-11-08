@@ -219,11 +219,10 @@ class pageFormation {
         while ($themes_row = mysql_fetch_array($themes_result)) {
 
             $exit[] = "<tr>
-                           <td>$themes_row[0]</td>
-                           <td>$themes_row[2]</td>".
-                           "<td>".$this->getTypeMultiplierById(1)*$themes_row[1]*'1000'.'$'."</td>".
-                           "<td>".$this->getTypeMultiplierById(2)*$themes_row[1]*'1000'.'$'."</td>".
-                       "</tr>";
+                         <td>$themes_row[theme]"."<br>"."$themes_row[description]</td>".
+                        "<td>".$this->getTypeMultiplierById(1)*$themes_row[rate]*'1000'.'$'."</td>".
+                        "<td>".$this->getTypeMultiplierById(2)*$themes_row[rate]*'1000'.'$'."</td>".
+                      "</tr>";
         };
         return $exit;
     }
