@@ -1,6 +1,8 @@
 <button name="estimate" class="estimate">Оценить</button>
+<div class="loading"></div>
 <script language='javascript' type='text/javascript'>
                 $('.estimate').click(function() {
+                    $('.loading').html("<img src='img/loading.gif'>");
                     var text = $('.text').html();
                     $.ajax({
                         type: 'POST',
@@ -12,6 +14,7 @@
                                test: '1',
                                ajax_url: 'http://www.content-watch.ru/public/api/'},
                         success: function(data) {
+                            $('.loading').html('');
                             $('.results').html(data.percent);
                             $('.originality').html(data.percent);
                             var originality = $('.results').html();

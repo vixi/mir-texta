@@ -14,7 +14,7 @@
                             $date = date("Y-m-d");
                             echo "
 <ul class='breadcrumb'>
-  <li><a href='/cabinet.php?action=cabinet'>Статьи</a> <span class='divider'>/</span></li>
+  <li><a href='cabinet.php?action=cabinet'>Статьи</a> <span class='divider'>/</span></li>
   <!--<li><a href='#'>Library</a> <span class='ivider'>/</span></li>-->
   <li class='active'>Добавить статью</li>
 </ul>
