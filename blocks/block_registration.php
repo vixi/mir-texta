@@ -61,7 +61,7 @@
                                 </div>
                                 </div>
                                 <label class='checkbox'>
-                                <input type='checkbox' class='confirm'>
+                                <input type='checkbox' class='confirm' name='rules' onclick='no_checked();'>
                                 С <a href='about.php'>правилами</a> работы сайта согласен!
                                 </label>
                                 <div class='control-group'>
@@ -118,6 +118,17 @@
                         }
                         return valid;
                     }
+
+                    $('#reg_submit').hide();
+                    function no_checked() {
+                        if($('input[name=rules]').is(':checked')==false){
+                            $('#reg_submit').hide();
+                        } else {
+                            $('#reg_submit').show();
+                        }
+                    }
+
+
                 </script>
             </div>
         </div>
