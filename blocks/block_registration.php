@@ -127,8 +127,6 @@
                             $('#reg_submit').show();
                         }
                     }
-
-
                 </script>
             </div>
         </div>

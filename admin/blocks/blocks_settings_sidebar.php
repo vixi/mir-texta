@@ -8,9 +8,9 @@
     </ul>
     <ul class='nav nav-list'>
       <li class='nav-header'>Типы</li>
-        <li><a href='settings.php?action=type_add'>Добавить тип</a></li>
+        <!--<li><a href='settings.php?action=type_add'>Добавить тип</a></li>-->
         <li><a href='settings.php?action=type_edit'>Редактировать тип</a></li>
-        <li><a href='settings.php?action=type_del'>Удалить тип</a></li>
+        <!--<li><a href='settings.php?action=type_del'>Удалить тип</a></li>-->
     </ul>
   </div>
 </div>

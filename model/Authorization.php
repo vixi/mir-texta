@@ -19,17 +19,17 @@ class Authorization {
         }
         if (isset($_POST['email'])) {$email = $this->quote_smart($_POST['email']); if ($email == '') {unset($email);}}
         if (preg_match("^([a-zA-Z0-9_]|\\-|\\.)+@(([a-z0-9_]|\\-)+\\.)+[a-z]{2,6}\$^", $email) == 0) {
-            $this->messages[] = "Неверный формат e-mail";
-            unset($email);
-            }
+            $this->messages[] = "<div class='alert alert-block'>Неверный формат e-mail</div>";
+            return;
+        }
         if (isset($_POST['password'])) {$password = md5($this->quote_smart($_POST['password'])); if ($password =='') {unset($password);}}
         /*if (preg_match("#[A-z!@\#$%^&*\(\)_\-\+:;,\.0-9]{6,20}#", $password) == 0) {
             $this->messages[] = "Неверный формат пароля";
             unset($password);
         }*/
-        if (isset($_POST['wmz']))      {$wmz = $this->quote_smart($_POST['wmz']); if ($wmz =='') {unset($wmz);}}
-        if (isset($_POST['wmr']))      {$wmr = $this->quote_smart($_POST['wmr']); if ($wmr =='') {unset($wmr);}}
-        if (isset($_POST['yandex']))   {$yandex = $this->quote_smart($_POST['yandex']); if ($yandex =='') {unset($yandex);}}
+        if (isset($_POST['wmz']))    {$wmz = $this->quote_smart($_POST['wmz']); if ($wmz =='') {unset($wmz);}}
+        if (isset($_POST['wmr']))    {$wmr = $this->quote_smart($_POST['wmr']); if ($wmr =='') {unset($wmr);}}
+        if (isset($_POST['yandex'])) {$yandex = $this->quote_smart($_POST['yandex']); if ($yandex =='') {unset($yandex);}}
         if (isset($email)&&isset($password)) {
             $registration_check_query = "SELECT id FROM users WHERE email='$email'";
             $registration_check_result = mysql_query($registration_check_query);
@@ -43,8 +43,8 @@ class Authorization {
                     $session_id_result = mysql_query($session_id_query);
                     $session_id_row = mysql_fetch_array($session_id_result);
                     $_SESSION['email'] = $email;
-                    $_SESSION['id'] = $session_id_row[0]; //тут беда
-                    $this->messages[] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='./index.php'>Главная страница</a>";
+                    $_SESSION['id'] = $session_id_row[0];
+                    $this->messages[] = "Вы успешно зарегистрированы!";
 /*
                     // Читаем настройки config
                     require_once './lib/mail_config.php';
@@ -72,7 +72,13 @@ class Authorization {
                 }
             }
         } else {
-            $this->messages[] = 'Вы ввели не всю информацию, вернитесь назад и заполните поля!';
+            if (isset($email) and !isset($password)) {
+                $this->messages[] = "<div class='alert alert-block'>Вы не ввели пароль.</div>";
+            } elseif (!isset($email) and isset($password)) {
+                $this->messages[] = "<div class='alert alert-block'>Вы не ввели email.</div>";
+            } elseif (!isset($email) and !isset($password)) {
+                $this->messages[] = "<div class='alert alert-block'>Вы не ввели email и пароль.</div>";
+            }
         }
     }
 
@@ -80,8 +86,14 @@ class Authorization {
         session_start();
         if (isset($_POST['email']))    {$email = $this->quote_smart($_POST['email']); if ($email == '') {unset($email);}}
         if (isset($_POST['password'])) {$password = md5($this->quote_smart($_POST['password'])); if ($password =='') {unset($password);}}
-        if (empty($email) or empty($password)) {
-            $this->messages[] = 'Вы ввели не всю информацию, вернитесь назад и заполните все поля!';
+        if (!isset($email) or !isset($password)) {
+            if (isset($email) and !isset($password)) {
+                $this->messages[] = "<div class='alert alert-block'>Вы не ввели пароль.</div>";
+            } elseif (!isset($email) and isset($password)) {
+                $this->messages[] = "<div class='alert alert-block'>Вы не ввели email.</div>";
+            } elseif (!isset($email) and !isset($password)) {
+                $this->messages[] = "<div class='alert alert-block'>Вы не ввели email и пароль.</div>";
+            }
         }
         $enter_query = "SELECT * FROM users WHERE email='$email'";
         $enter_result = mysql_query($enter_query);
