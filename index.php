@@ -32,7 +32,7 @@ if (isset($_GET[articles_id])) {$articles_id = $index->get_protect($_GET[article
         <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     </head>
     <body>
-    <div class="bg-top">
+        <div class="bg-top">
             <?php
             include 'blocks/block_header.php';
             if (isset($news_id)) {

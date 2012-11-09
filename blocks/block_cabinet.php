@@ -13,15 +13,15 @@
                         case 'article_add' :
                             $date = date("Y-m-d");
                             echo "
-<ul class='breadcrumb'>
-  <li><a href='cabinet.php?action=cabinet'>Статьи</a> <span class='divider'>/</span></li>
-  <!--<li><a href='#'>Library</a> <span class='ivider'>/</span></li>-->
-  <li class='active'>Добавить статью</li>
-</ul>
+                            <ul class='breadcrumb'>
+                            <li><a href='cabinet.php?action=cabinet'>Статьи</a> <span class='divider'>/</span></li>
+                            <!--<li><a href='#'>Library</a> <span class='divider'>/</span></li>-->
+                            <li class='active'>Добавить статью</li>
+                            </ul>
 
 
 
-<form action='cabinet.php' method='post'>
+                            <form action='cabinet.php' method='post'>
                                 <label><span>Тема статьи:</span>
                                 <select name='theme'>";
                                     foreach ($cabinet->selectThemes() as $k => $v) {
@@ -30,16 +30,16 @@
                                 echo
                                 "</select>
                                 </label>
-      <!--                          <div class='popover bottom'>
-  <div class='arrow'></div>
- <h5 class='popover-title'>Описание раздела</h5>
-  <div class='popover-content'>
-    <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-  </div>
-</div>-->
+                                <!--<div class='popover bottom'>
+                                <div class='arrow'></div>
+                                <h5 class='popover-title'>Описание раздела</h5>
+                                <div class='popover-content'>
+                                    <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                                </div>
+                                </div>-->
 
 
-                              <label><span>Тип статьи:</span>
+                                <label><span>Тип статьи:</span>
                                 <select name='type'>";
                                 $user_id_query = "SELECT id FROM users WHERE email='$_SESSION[email]'";
                                 $user_id_result = mysql_query($user_id_query);
