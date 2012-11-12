@@ -11,7 +11,7 @@
                         data: {text: text,
                                key: 'N8bW1QnkuYbe3AT',
                                format: 'json',
-                               test: '1',
+                               test: '0',
                                ajax_url: 'http://www.content-watch.ru/public/api/'},
                         success: function(data) {
                             $('.loading').html('');
@@ -52,7 +52,7 @@
         Тип статьи: <p>".$read_article_row[type]."</p>
         Теги, через запятую: <p>".$read_article_row[tags]."</p>
         Заголовок статьи: <p>".$read_article_row[title]."</p>
-        Текст статьи: <p class='text'>".$read_article_row[text]."</p>";
+        Текст статьи: <p class='text'>".nl2br($read_article_row[text])."</p>";
 
         echo
             "Текущий статус: <p>".$admin_edition->getArticleStatusById($article_id)."</p>
