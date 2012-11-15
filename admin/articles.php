@@ -3,9 +3,9 @@ require_once 'model/lock.php';
 require_once 'model/config.php';
 require_once 'model/AdminFormation.class.php';
 require_once 'model/AdminEdition.class.php';
-require_once "../model/UserCabinet.php";
-require_once "model/db_connection.php";
-require_once "controller/AdminController.php";
+require_once '../model/UserCabinet.php';
+require_once 'model/db_connection.php';
+require_once 'controller/AdminController.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,7 @@ require_once "controller/AdminController.php";
         <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.tablesorter.min.js"></script>
     </head>
     <body>
         <div class="container">

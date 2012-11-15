@@ -5777,3 +5777,7 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+
+th.header {
+    cursor: pointer;
+}
